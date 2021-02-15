@@ -1,5 +1,4 @@
 The old website: https://alka.now.sh
-
 In this website (my new website: https://alka.vercel.app), i updated a few things
 
 
