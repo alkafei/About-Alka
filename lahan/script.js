@@ -33,32 +33,32 @@ jQuery(function ($) {
                 "duration": "3:27",
                 "file": "TWICE - Feel Special"
             }, {
-                "track": 4,
+                "track": 3,
                 "name": "FLILV - Abyss",
                 "duration": "3:46",
                 "file": "Fear, and Loathing in Las Vegas - Abyss"
             }, {
-                "track": 5,
+                "track": 4,
                 "name": "TWICE - FANCY",
                 "duration": "3:34",
                 "file": "TWICE - FANCY"
             }, {
-                "track": 6,
+                "track": 5,
                 "name": "FLILV - LLLD",
                 "duration": "3:17",
                 "file": "Fear, and Loathing in Las Vegas - LLLD"
             }, {
-                "track": 7,
+                "track": 6,
                 "name": "Goose house - Swing Girl",
                 "duration": "3:40",
                 "file": "Goose house - Swing Girl"
             }, {
-                "track": 8,
+                "track": 7,
                 "name": "FLILV - Crossover.mp3",
                 "duration": "3:12",
                 "file": "Fear, and Loathing in Las Vegas - Crossover"
             }, {
-                "track": 9,
+                "track": 8,
                 "name": "TWICE - YES or YES",
                 "duration": "3:58",
                 "file": "TWICE - YES or YES"
