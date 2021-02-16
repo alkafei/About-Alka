@@ -33,11 +33,6 @@ jQuery(function ($) {
                 "duration": "3:27",
                 "file": "TWICE - Feel Special"
             }, {
-                "track": 3,
-                "name": "Little Big - Big Dick",
-                "duration": "2:40",
-                "file": "Little Big - Big Dick"
-            }, {
                 "track": 4,
                 "name": "FLILV - Abyss",
                 "duration": "3:46",
