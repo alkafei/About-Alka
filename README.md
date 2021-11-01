@@ -1,9 +1,11 @@
-The old website: https://alka.now.sh
+Holla! Thanks for visiting my profile site. I hope you enjoy it.
 
-In this website (my new website: https://alka.vercel.app), i updated a few things
-
-<b>Change log:</b>
+<b>Change log (July 21st):</b>
 - Change the website background
 - New font color
 - New song
 - Delete Corona subdomain (monitoring lastes global data corona pandemic)
+
+<b>Change log (Novemver 1st):</b>
+- Add Banker's Algorithm Calculator
+- Edit index title header on every subfolder
