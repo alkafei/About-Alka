@@ -1,0 +1,3233 @@
+<html>
+<head>
+<style>
+p
+{
+	font-size : 1.3em;
+	padding : 1px;
+	display : inline;
+	margin-left : 12px;
+	border : 1px solid gray;
+	background-color : #ffffff;
+}
+
+p:empty:not(:focus)::before 
+{
+  content: attr(data-placeholder);
+}
+</style>
+  <meta charset="UTF-8">
+  <title>Alka: Banker's Algorithm Calculator</title>
+  <link rel="shortcut icon" href="https://alka.now.sh/AlkaFei.png">
+</head>
+
+<body style="background-color:#FFE4C4">
+
+<div id="pro" style="border-top:5px groove grey">
+<br>
+Select number of processes:
+<SELECT id="processes" >
+	<OPTION value="1">1</OPTION>
+	<OPTION value="2">2</OPTION>
+	<OPTION value="3">3</OPTION>
+	<OPTION value="4">4</OPTION>
+	<OPTION value="5">5</OPTION>
+	<OPTION value="6">6</OPTION>
+	<OPTION value="7">7</OPTION>
+	<OPTION value="8">8</OPTION>
+	<OPTION value="9">9</OPTION>
+	<OPTION value="10">10</OPTION>
+</SELECT><br>
+</div>
+<br>
+<div id="res">
+Select number of resources:
+<SELECT id="resources">
+	<OPTION value="1">1</OPTION>
+	<OPTION value="2">2</OPTION>
+	<OPTION value="3">3</OPTION>
+	<OPTION value="4">4</OPTION>
+	<OPTION value="5">5</OPTION>
+	<OPTION value="6">6</OPTION>
+	<OPTION value="7">7</OPTION>
+	<OPTION value="8">8</OPTION>
+	<OPTION value="9">9</OPTION>
+	<OPTION value="10">10</OPTION>
+</SELECT><br><br><br>
+</div>
+
+<div id="allo" style="display:block" >
+To Enter values into allocation matrix, max matrix and avail matrix click on this button: &nbsp;&nbsp;&nbsp; <button onclick="MyFun()" name="alloMatrix">Click Here...</button><br><br><br>
+
+<br>
+<div id="a0" style="display:none;border-top:5px groove grey">
+<div id="alloca" style="border-bottom:5px groove grey;background-color:#FF7F50">
+<center>Allocation Matrix</center><br></div>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<span id="r1">Res1&nbsp;&nbsp;&nbsp;</span>
+<span id="r2">Res2&nbsp;&nbsp;</span>
+<span id="r3">Res3&nbsp;&nbsp;&nbsp;</span>
+<span id="r4">Res4&nbsp;&nbsp;</span>
+<span id="r5">Res5&nbsp;&nbsp;&nbsp;</span>
+<span id="r6">Res6&nbsp;&nbsp;</span>
+<span id="r7">Res7&nbsp;&nbsp;&nbsp;</span>
+<span id="r8">Res8&nbsp;&nbsp;</span>
+<span id="r9">Res9&nbsp;&nbsp;&nbsp;</span>
+<span id="r10">Res10 </span><br>
+Process 1:&nbsp;&nbsp;
+<input type="text" placeholder="0" id="a00" size="2" ></input>&nbsp;
+<input type="text" placeholder="0" id="a01" size="2" ></input>&nbsp;
+<input type="text" placeholder="0" id="a02" size="2" ></input>&nbsp;
+<input type="text" placeholder="0" id="a03" size="2" ></input>&nbsp;
+<input type="text" placeholder="0" id="a04" size="2" ></input>&nbsp;
+<input type="text" placeholder="0" id="a05" size="2" ></input>&nbsp;
+<input type="text" placeholder="0" id="a06" size="2" ></input>&nbsp;
+<input type="text" placeholder="0" id="a07" size="2" ></input>&nbsp;
+<input type="text" placeholder="0" id="a08" size="2" ></input>&nbsp;
+<input type="text" placeholder="0" id="a09" size="2" ></input>&nbsp;
+</div>
+<div id="a1" style="display:none">
+Process 2:&nbsp;&nbsp;
+<input type="text" placeholder="0" id="a10" size="2" ></input>&nbsp;
+<input type="text" placeholder="0" id="a11" size="2" ></input>&nbsp;
+<input type="text" placeholder="0" id="a12" size="2" ></input>&nbsp;
+<input type="text" placeholder="0" id="a13" size="2" ></input>&nbsp;
+<input type="text" placeholder="0" id="a14" size="2" ></input>&nbsp;
+<input type="text" placeholder="0" id="a15" size="2" ></input>&nbsp;
+<input type="text" placeholder="0" id="a16" size="2" ></input>&nbsp;
+<input type="text" placeholder="0" id="a17" size="2" ></input>&nbsp;
+<input type="text" placeholder="0" id="a18" size="2" ></input>&nbsp;
+<input type="text" placeholder="0" id="a19" size="2" ></input>&nbsp;
+</div>
+<div id="a2" style="display:none">
+Process 3:&nbsp;&nbsp;
+<input type="text" placeholder="0" id="a20" size="2" ></input>&nbsp;
+<input type="text" placeholder="0" id="a21" size="2" ></input>&nbsp;
+<input type="text" placeholder="0" id="a22" size="2" ></input>&nbsp;
+<input type="text" placeholder="0" id="a23" size="2" ></input>&nbsp;
+<input type="text" placeholder="0" id="a24" size="2" ></input>&nbsp;
+<input type="text" placeholder="0" id="a25" size="2" ></input>&nbsp;
+<input type="text" placeholder="0" id="a26" size="2" ></input>&nbsp;
+<input type="text" placeholder="0" id="a27" size="2" ></input>&nbsp;
+<input type="text" placeholder="0" id="a28" size="2" ></input>&nbsp;
+<input type="text" placeholder="0" id="a29" size="2" ></input>&nbsp;
+</div>
+<div id="a3" style="display:none">
+Process 4:&nbsp;&nbsp;
+<input type="text" placeholder="0" id="a30" size="2" ></input>&nbsp;
+<input type="text" placeholder="0" id="a31" size="2" ></input>&nbsp;
+<input type="text" placeholder="0" id="a32" size="2" ></input>&nbsp;
+<input type="text" placeholder="0" id="a33" size="2" ></input>&nbsp;
+<input type="text" placeholder="0" id="a34" size="2" ></input>&nbsp;
+<input type="text" placeholder="0" id="a35" size="2" ></input>&nbsp;
+<input type="text" placeholder="0" id="a36" size="2" ></input>&nbsp;
+<input type="text" placeholder="0" id="a37" size="2" ></input>&nbsp;
+<input type="text" placeholder="0" id="a38" size="2" ></input>&nbsp;
+<input type="text" placeholder="0" id="a39" size="2" ></input>&nbsp;
+</div>
+<div id="a4" style="display:none">
+Process 5:&nbsp;&nbsp;
+<input type="text" placeholder="0" id="a40" size="2" ></input>&nbsp;
+<input type="text" placeholder="0" id="a41" size="2" ></input>&nbsp;
+<input type="text" placeholder="0" id="a42" size="2" ></input>&nbsp;
+<input type="text" placeholder="0" id="a43" size="2" ></input>&nbsp;
+<input type="text" placeholder="0" id="a44" size="2" ></input>&nbsp;
+<input type="text" placeholder="0" id="a45" size="2" ></input>&nbsp;
+<input type="text" placeholder="0" id="a46" size="2" ></input>&nbsp;
+<input type="text" placeholder="0" id="a47" size="2" ></input>&nbsp;
+<input type="text" placeholder="0" id="a48" size="2" ></input>&nbsp;
+<input type="text" placeholder="0" id="a49" size="2" ></input>&nbsp;
+</div>
+<div id="a5" style="display:none">
+Process 6:&nbsp;&nbsp;
+<input type="text" placeholder="0" id="a50" size="2" ></input>&nbsp;
+<input type="text" placeholder="0" id="a51" size="2" ></input>&nbsp;
+<input type="text" placeholder="0" id="a52" size="2" ></input>&nbsp;
+<input type="text" placeholder="0" id="a53" size="2" ></input>&nbsp;
+<input type="text" placeholder="0" id="a54" size="2" ></input>&nbsp;
+<input type="text" placeholder="0" id="a55" size="2" ></input>&nbsp;
+<input type="text" placeholder="0" id="a56" size="2" ></input>&nbsp;
+<input type="text" placeholder="0" id="a57" size="2" ></input>&nbsp;
+<input type="text" placeholder="0" id="a58" size="2" ></input>&nbsp;
+<input type="text" placeholder="0" id="a59" size="2" ></input>&nbsp;
+</div>
+<div id="a6" style="display:none">
+Process 7:&nbsp;&nbsp;
+<input type="text" placeholder="0" id="a60" size="2" ></input>&nbsp;
+<input type="text" placeholder="0" id="a61" size="2" ></input>&nbsp;
+<input type="text" placeholder="0" id="a62" size="2" ></input>&nbsp;
+<input type="text" placeholder="0" id="a63" size="2" ></input>&nbsp;
+<input type="text" placeholder="0" id="a64" size="2" ></input>&nbsp;
+<input type="text" placeholder="0" id="a65" size="2" ></input>&nbsp;
+<input type="text" placeholder="0" id="a66" size="2" ></input>&nbsp;
+<input type="text" placeholder="0" id="a67" size="2" ></input>&nbsp;
+<input type="text" placeholder="0" id="a68" size="2" ></input>&nbsp;
+<input type="text" placeholder="0" id="a69" size="2" ></input>&nbsp;
+</div>
+<div id="a7" style="display:none">
+Process 8:&nbsp;&nbsp;
+<input type="text" placeholder="0" id="a70" size="2" ></input>&nbsp;
+<input type="text" placeholder="0" id="a71" size="2" ></input>&nbsp;
+<input type="text" placeholder="0" id="a72" size="2" ></input>&nbsp;
+<input type="text" placeholder="0" id="a73" size="2" ></input>&nbsp;
+<input type="text" placeholder="0" id="a74" size="2" ></input>&nbsp;
+<input type="text" placeholder="0" id="a75" size="2" ></input>&nbsp;
+<input type="text" placeholder="0" id="a76" size="2" ></input>&nbsp;
+<input type="text" placeholder="0" id="a77" size="2" ></input>&nbsp;
+<input type="text" placeholder="0" id="a78" size="2" ></input>&nbsp;
+<input type="text" placeholder="0" id="a79" size="2" ></input>&nbsp;
+</div>
+<div id="a8" style="display:none">
+Process 9:&nbsp;&nbsp;
+<input type="text" placeholder="0" id="a80" size="2" ></input>&nbsp;
+<input type="text" placeholder="0" id="a81" size="2" ></input>&nbsp;
+<input type="text" placeholder="0" id="a82" size="2" ></input>&nbsp;
+<input type="text" placeholder="0" id="a83" size="2" ></input>&nbsp;
+<input type="text" placeholder="0" id="a84" size="2" ></input>&nbsp;
+<input type="text" placeholder="0" id="a85" size="2" ></input>&nbsp;
+<input type="text" placeholder="0" id="a86" size="2" ></input>&nbsp;
+<input type="text" placeholder="0" id="a87" size="2" ></input>&nbsp;
+<input type="text" placeholder="0" id="a88" size="2" ></input>&nbsp;
+<input type="text" placeholder="0" id="a89" size="2" ></input>&nbsp;
+</div>
+<div id="a9" style="display:none">
+Process 10:
+<input type="text" placeholder="0" id="a90" size="2" ></input>&nbsp;
+<input type="text" placeholder="0" id="a91" size="2" ></input>&nbsp;
+<input type="text" placeholder="0" id="a92" size="2" ></input>&nbsp;
+<input type="text" placeholder="0" id="a93" size="2" ></input>&nbsp;
+<input type="text" placeholder="0" id="a94" size="2" ></input>&nbsp;
+<input type="text" placeholder="0" id="a95" size="2" ></input>&nbsp;
+<input type="text" placeholder="0" id="a96" size="2" ></input>&nbsp;
+<input type="text" placeholder="0" id="a97" size="2" ></input>&nbsp;
+<input type="text" placeholder="0" id="a98" size="2" ></input>&nbsp;
+<input type="text" placeholder="0" id="a99" size="2" ></input>&nbsp;
+</div>
+</div>
+
+<br><br>
+
+<div id="ma" style="display:block;border-top:5px groove grey">
+<div id="m0" style="display:none"><div id="my" style="border-bottom:5px groove grey;background-color:#FF7F50"><center>Max Matrix</center><br></div>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<span id="rm1">Res1&nbsp;&nbsp;&nbsp;</span>
+<span id="rm2">Res2&nbsp;&nbsp;</span>
+<span id="rm3">Res3&nbsp;&nbsp;&nbsp;</span>
+<span id="rm4">Res4&nbsp;&nbsp;</span>
+<span id="rm5">Res5&nbsp;&nbsp;&nbsp;</span>
+<span id="rm6">Res6&nbsp;&nbsp;</span>
+<span id="rm7">Res7&nbsp;&nbsp;&nbsp;</span>
+<span id="rm8">Res8&nbsp;&nbsp;</span>
+<span id="rm9">Res9&nbsp;&nbsp;&nbsp;</span>
+<span id="rm10">Res10 </span><br>
+Process 1:&nbsp;&nbsp;
+<input type="text" placeholder="0" id="m00" size="2" ></input>&nbsp;
+<input type="text" placeholder="0" id="m01" size="2" ></input>&nbsp;
+<input type="text" placeholder="0" id="m02" size="2" ></input>&nbsp;
+<input type="text" placeholder="0" id="m03" size="2" ></input>&nbsp;
+<input type="text" placeholder="0" id="m04" size="2" ></input>&nbsp;
+<input type="text" placeholder="0" id="m05" size="2" ></input>&nbsp;
+<input type="text" placeholder="0" id="m06" size="2" ></input>&nbsp;
+<input type="text" placeholder="0" id="m07" size="2" ></input>&nbsp;
+<input type="text" placeholder="0" id="m08" size="2" ></input>&nbsp;
+<input type="text" placeholder="0" id="m09" size="2" ></input>&nbsp;
+</div>
+<div id="m1" style="display:none">
+Process 2:&nbsp;&nbsp;
+<input type="text" placeholder="0" id="m10" size="2" ></input>&nbsp;
+<input type="text" placeholder="0" id="m11" size="2" ></input>&nbsp;
+<input type="text" placeholder="0" id="m12" size="2" ></input>&nbsp;
+<input type="text" placeholder="0" id="m13" size="2" ></input>&nbsp;
+<input type="text" placeholder="0" id="m14" size="2" ></input>&nbsp;
+<input type="text" placeholder="0" id="m15" size="2" ></input>&nbsp;
+<input type="text" placeholder="0" id="m16" size="2" ></input>&nbsp;
+<input type="text" placeholder="0" id="m17" size="2" ></input>&nbsp;
+<input type="text" placeholder="0" id="m18" size="2" ></input>&nbsp;
+<input type="text" placeholder="0" id="m19" size="2" ></input>&nbsp;
+</div>
+<div id="m2" style="display:none">
+Process 3:&nbsp;&nbsp;
+<input type="text" placeholder="0" id="m20" size="2" ></input>&nbsp;
+<input type="text" placeholder="0" id="m21" size="2" ></input>&nbsp;
+<input type="text" placeholder="0" id="m22" size="2" ></input>&nbsp;
+<input type="text" placeholder="0" id="m23" size="2" ></input>&nbsp;
+<input type="text" placeholder="0" id="m24" size="2" ></input>&nbsp;
+<input type="text" placeholder="0" id="m25" size="2" ></input>&nbsp;
+<input type="text" placeholder="0" id="m26" size="2" ></input>&nbsp;
+<input type="text" placeholder="0" id="m27" size="2" ></input>&nbsp;
+<input type="text" placeholder="0" id="m28" size="2" ></input>&nbsp;
+<input type="text" placeholder="0" id="m29" size="2" ></input>&nbsp;
+</div>
+<div id="m3" style="display:none">
+Process 4:&nbsp;&nbsp;
+<input type="text" placeholder="0" id="m30" size="2" ></input>&nbsp;
+<input type="text" placeholder="0" id="m31" size="2" ></input>&nbsp;
+<input type="text" placeholder="0" id="m32" size="2" ></input>&nbsp;
+<input type="text" placeholder="0" id="m33" size="2" ></input>&nbsp;
+<input type="text" placeholder="0" id="m34" size="2" ></input>&nbsp;
+<input type="text" placeholder="0" id="m35" size="2" ></input>&nbsp;
+<input type="text" placeholder="0" id="m36" size="2" ></input>&nbsp;
+<input type="text" placeholder="0" id="m37" size="2" ></input>&nbsp;
+<input type="text" placeholder="0" id="m38" size="2" ></input>&nbsp;
+<input type="text" placeholder="0" id="m39" size="2" ></input>&nbsp;
+</div>
+<div id="m4" style="display:none">
+Process 5:&nbsp;&nbsp;
+<input type="text" placeholder="0" id="m40" size="2" ></input>&nbsp;
+<input type="text" placeholder="0" id="m41" size="2" ></input>&nbsp;
+<input type="text" placeholder="0" id="m42" size="2" ></input>&nbsp;
+<input type="text" placeholder="0" id="m43" size="2" ></input>&nbsp;
+<input type="text" placeholder="0" id="m44" size="2" ></input>&nbsp;
+<input type="text" placeholder="0" id="m45" size="2" ></input>&nbsp;
+<input type="text" placeholder="0" id="m46" size="2" ></input>&nbsp;
+<input type="text" placeholder="0" id="m47" size="2" ></input>&nbsp;
+<input type="text" placeholder="0" id="m48" size="2" ></input>&nbsp;
+<input type="text" placeholder="0" id="m49" size="2" ></input>&nbsp;
+</div>
+<div id="m5" style="display:none">
+Process 6:&nbsp;&nbsp;
+<input type="text" placeholder="0" id="m50" size="2" ></input>&nbsp;
+<input type="text" placeholder="0" id="m51" size="2" ></input>&nbsp;
+<input type="text" placeholder="0" id="m52" size="2" ></input>&nbsp;
+<input type="text" placeholder="0" id="m53" size="2" ></input>&nbsp;
+<input type="text" placeholder="0" id="m54" size="2" ></input>&nbsp;
+<input type="text" placeholder="0" id="m55" size="2" ></input>&nbsp;
+<input type="text" placeholder="0" id="m56" size="2" ></input>&nbsp;
+<input type="text" placeholder="0" id="m57" size="2" ></input>&nbsp;
+<input type="text" placeholder="0" id="m58" size="2" ></input>&nbsp;
+<input type="text" placeholder="0" id="m59" size="2" ></input>&nbsp;
+</div>
+<div id="m6" style="display:none">
+Process 7:&nbsp;&nbsp;
+<input type="text" placeholder="0" id="m60" size="2" ></input>&nbsp;
+<input type="text" placeholder="0" id="m61" size="2" ></input>&nbsp;
+<input type="text" placeholder="0" id="m62" size="2" ></input>&nbsp;
+<input type="text" placeholder="0" id="m63" size="2" ></input>&nbsp;
+<input type="text" placeholder="0" id="m64" size="2" ></input>&nbsp;
+<input type="text" placeholder="0" id="m65" size="2" ></input>&nbsp;
+<input type="text" placeholder="0" id="m66" size="2" ></input>&nbsp;
+<input type="text" placeholder="0" id="m67" size="2" ></input>&nbsp;
+<input type="text" placeholder="0" id="m68" size="2" ></input>&nbsp;
+<input type="text" placeholder="0" id="m69" size="2" ></input>&nbsp;
+</div>
+<div id="m7" style="display:none">
+Process 8:&nbsp;&nbsp;
+<input type="text" placeholder="0" id="m70" size="2" ></input>&nbsp;
+<input type="text" placeholder="0" id="m71" size="2" ></input>&nbsp;
+<input type="text" placeholder="0" id="m72" size="2" ></input>&nbsp;
+<input type="text" placeholder="0" id="m73" size="2" ></input>&nbsp;
+<input type="text" placeholder="0" id="m74" size="2" ></input>&nbsp;
+<input type="text" placeholder="0" id="m75" size="2" ></input>&nbsp;
+<input type="text" placeholder="0" id="m76" size="2" ></input>&nbsp;
+<input type="text" placeholder="0" id="m77" size="2" ></input>&nbsp;
+<input type="text" placeholder="0" id="m78" size="2" ></input>&nbsp;
+<input type="text" placeholder="0" id="m79" size="2" ></input>&nbsp;
+</div>
+<div id="m8" style="display:none">
+Process 9:&nbsp;&nbsp;
+<input type="text" placeholder="0" id="m80" size="2" ></input>&nbsp;
+<input type="text" placeholder="0" id="m81" size="2" ></input>&nbsp;
+<input type="text" placeholder="0" id="m82" size="2" ></input>&nbsp;
+<input type="text" placeholder="0" id="m83" size="2" ></input>&nbsp;
+<input type="text" placeholder="0" id="m84" size="2" ></input>&nbsp;
+<input type="text" placeholder="0" id="m85" size="2" ></input>&nbsp;
+<input type="text" placeholder="0" id="m86" size="2" ></input>&nbsp;
+<input type="text" placeholder="0" id="m87" size="2" ></input>&nbsp;
+<input type="text" placeholder="0" id="m88" size="2" ></input>&nbsp;
+<input type="text" placeholder="0" id="m89" size="2" ></input>&nbsp;
+</div>
+<div id="m9" style="display:none">
+Process 10:
+<input type="text" placeholder="0" id="m90" size="2" ></input>&nbsp;
+<input type="text" placeholder="0" id="m91" size="2" ></input>&nbsp;
+<input type="text" placeholder="0" id="m92" size="2" ></input>&nbsp;
+<input type="text" placeholder="0" id="m93" size="2" ></input>&nbsp;
+<input type="text" placeholder="0" id="m94" size="2" ></input>&nbsp;
+<input type="text" placeholder="0" id="m95" size="2" ></input>&nbsp;
+<input type="text" placeholder="0" id="m96" size="2" ></input>&nbsp;
+<input type="text" placeholder="0" id="m97" size="2" ></input>&nbsp;
+<input type="text" placeholder="0" id="m98" size="2" ></input>&nbsp;
+<input type="text" placeholder="0" id="m99" size="2" ></input>&nbsp;
+</div>
+</div>
+<br><br><br>
+<div id="available" style="display:none">
+<div id="ava" style="border-top:5px groove grey;border-bottom:5px groove grey;background-color:#FF7F50">
+<center>Available Matrix</center><br></div>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<span id="ra1">Res1&nbsp;&nbsp;&nbsp;</span>
+<span id="ra2">Res2&nbsp;&nbsp;</span>
+<span id="ra3">Res3&nbsp;&nbsp;&nbsp;</span>
+<span id="ra4">Res4&nbsp;&nbsp;</span>
+<span id="ra5">Res5&nbsp;&nbsp;&nbsp;</span>
+<span id="ra6">Res6&nbsp;&nbsp;</span>
+<span id="ra7">Res7&nbsp;&nbsp;&nbsp;</span>
+<span id="ra8">Res8&nbsp;&nbsp;</span>
+<span id="ra9">Res9&nbsp;&nbsp;&nbsp;</span>
+<span id="ra10">Res10 </span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<input type="text" placeholder="0" id="av0" size="2" ></input>&nbsp;
+<input type="text" placeholder="0" id="av1" size="2" ></input>&nbsp;
+<input type="text" placeholder="0" id="av2" size="2" ></input>&nbsp;
+<input type="text" placeholder="0" id="av3" size="2" ></input>&nbsp;
+<input type="text" placeholder="0" id="av4" size="2" ></input>&nbsp;
+<input type="text" placeholder="0" id="av5" size="2" ></input>&nbsp;
+<input type="text" placeholder="0" id="av6" size="2" ></input>&nbsp;
+<input type="text" placeholder="0" id="av7" size="2" ></input>&nbsp;
+<input type="text" placeholder="0" id="av8" size="2" ></input>&nbsp;
+<input type="text" placeholder="0" id="av9" size="2" ></input>&nbsp;
+
+<br><br>
+
+<div id="pallo" style="display:block " >
+<h3 style = "text-align : center">To See The Calculation ...  :&nbsp;&nbsp;&nbsp; <button onclick="mainmethod()" name="palloMatrix">Click Here...</button></h3><br>
+<div id="pa0" style="display: none; margin-top : 10px;border-top:5px groove grey">
+<div id="palloca" style="border-bottom:5px groove grey;background-color:#FF7F50">
+<center>Allocation Matrix</center><br></div>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<span id="pr1">Res1&nbsp;&nbsp;&nbsp;</span>
+<span id="pr2">Res2&nbsp;&nbsp;</span>
+<span id="pr3">Res3&nbsp;&nbsp;&nbsp;</span>
+<span id="pr4">Res4&nbsp;&nbsp;</span>
+<span id="pr5">Res5&nbsp;&nbsp;&nbsp;</span>
+<span id="pr6">Res6&nbsp;&nbsp;</span>
+<span id="pr7">Res7&nbsp;&nbsp;&nbsp;</span>
+<span id="pr8">Res8&nbsp;&nbsp;</span>
+<span id="pr9">Res9&nbsp;&nbsp;&nbsp;</span>
+<span id="pr10">Res10 </span><br>
+Process 1:&nbsp;&nbsp;
+<p data-placeholder="00" contenteditable id="pa00" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pa01" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pa02" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pa03" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pa04" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pa05" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pa06" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pa07" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pa08" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pa09" size="2" ></p>&nbsp;
+</div>
+<div id="pa1" style="display: none; margin-top : 10px;">
+Process 2:&nbsp;&nbsp;
+<p data-placeholder="00" contenteditable id="pa10" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pa11" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pa12" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pa13" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pa14" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pa15" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pa16" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pa17" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pa18" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pa19" size="2" ></p>&nbsp;
+</div>
+<div id="pa2" style="display: none; margin-top : 10px;">
+Process 3:&nbsp;&nbsp;
+<p data-placeholder="00" contenteditable id="pa20" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pa21" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pa22" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pa23" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pa24" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pa25" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pa26" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pa27" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pa28" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pa29" size="2" ></p>&nbsp;
+</div>
+<div id="pa3" style="display: none; margin-top : 10px;">
+Process 4:&nbsp;&nbsp;
+<p data-placeholder="00" contenteditable id="pa30" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pa31" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pa32" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pa33" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pa34" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pa35" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pa36" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pa37" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pa38" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pa39" size="2" ></p>&nbsp;
+</div>
+<div id="pa4" style="display: none; margin-top : 10px;">
+Process 5:&nbsp;&nbsp;
+<p data-placeholder="00" contenteditable id="pa40" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pa41" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pa42" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pa43" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pa44" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pa45" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pa46" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pa47" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pa48" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pa49" size="2" ></p>&nbsp;
+</div>
+<div id="pa5" style="display: none; margin-top : 10px;">
+Process 6:&nbsp;&nbsp;
+<p data-placeholder="00" contenteditable id="pa50" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pa51" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pa52" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pa53" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pa54" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pa55" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pa56" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pa57" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pa58" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pa59" size="2" ></p>&nbsp;
+</div>
+<div id="pa6" style="display: none; margin-top : 10px;">
+Process 7:&nbsp;&nbsp;
+<p data-placeholder="00" contenteditable id="pa60" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pa61" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pa62" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pa63" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pa64" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pa65" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pa66" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pa67" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pa68" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pa69" size="2" ></p>&nbsp;
+</div>
+<div id="pa7" style="display: none; margin-top : 10px;">
+Process 8:&nbsp;&nbsp;
+<p data-placeholder="00" contenteditable id="pa70" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pa71" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pa72" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pa73" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pa74" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pa75" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pa76" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pa77" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pa78" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pa79" size="2" ></p>&nbsp;
+</div>
+<div id="pa8" style="display: none; margin-top : 10px;">
+Process 9:&nbsp;&nbsp;
+<p data-placeholder="00" contenteditable id="pa80" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pa81" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pa82" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pa83" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pa84" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pa85" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pa86" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pa87" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pa88" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pa89" size="2" ></p>&nbsp;
+</div>
+<div id="pa9" style="display: none; margin-top : 10px;">
+Process 10:
+<p data-placeholder="00" contenteditable id="pa90" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pa91" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pa92" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pa93" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pa94" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pa95" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pa96" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pa97" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pa98" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pa99" size="2" ></p>&nbsp;
+</div>
+</div>
+
+<br><br>
+
+<div id="pma" style="display: none;block;border-top:5px groove grey">
+<div id="pm0" style="display: none;"><div id="pmy" style="border-bottom:5px groove grey;background-color:#FF7F50"><center>Max Matrix</center><br></div>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<span id="prm1">Res1&nbsp;&nbsp;&nbsp;</span>
+<span id="prm2">Res2&nbsp;&nbsp;</span>
+<span id="prm3">Res3&nbsp;&nbsp;&nbsp;</span>
+<span id="prm4">Res4&nbsp;&nbsp;</span>
+<span id="prm5">Res5&nbsp;&nbsp;&nbsp;</span>
+<span id="prm6">Res6&nbsp;&nbsp;</span>
+<span id="prm7">Res7&nbsp;&nbsp;&nbsp;</span>
+<span id="prm8">Res8&nbsp;&nbsp;</span>
+<span id="prm9">Res9&nbsp;&nbsp;&nbsp;</span>
+<span id="prm10">Res10 </span><br>
+Process 1:&nbsp;&nbsp;
+<p data-placeholder="00" contenteditable id="pm00" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pm01" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pm02" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pm03" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pm04" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pm05" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pm06" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pm07" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pm08" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pm09" size="2" ></p>&nbsp;
+</div>
+<div id="pm1" style="display: none; margin-top : 10px;">
+Process 2:&nbsp;&nbsp;
+<p data-placeholder="00" contenteditable id="pm10" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pm11" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pm12" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pm13" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pm14" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pm15" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pm16" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pm17" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pm18" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pm19" size="2" ></p>&nbsp;
+</div>
+<div id="pm2" style="display: none; margin-top : 10px;">
+Process 3:&nbsp;&nbsp;
+<p data-placeholder="00" contenteditable id="pm20" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pm21" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pm22" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pm23" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pm24" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pm25" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pm26" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pm27" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pm28" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pm29" size="2" ></p>&nbsp;
+</div>
+<div id="pm3" style="display: none; margin-top : 10px;">
+Process 4:&nbsp;&nbsp;
+<p data-placeholder="00" contenteditable id="pm30" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pm31" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pm32" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pm33" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pm34" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pm35" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pm36" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pm37" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pm38" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pm39" size="2" ></p>&nbsp;
+</div>
+<div id="pm4" style="display: none; margin-top : 10px;">
+Process 5:&nbsp;&nbsp;
+<p data-placeholder="00" contenteditable id="pm40" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pm41" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pm42" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pm43" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pm44" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pm45" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pm46" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pm47" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pm48" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pm49" size="2" ></p>&nbsp;
+</div>
+<div id="pm5" style="display: none; margin-top : 10px;">
+Process 6:&nbsp;&nbsp;
+<p data-placeholder="00" contenteditable id="pm50" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pm51" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pm52" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pm53" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pm54" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pm55" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pm56" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pm57" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pm58" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pm59" size="2" ></p>&nbsp;
+</div>
+<div id="pm6" style="display: none; margin-top : 10px;">
+Process 7:&nbsp;&nbsp;
+<p data-placeholder="00" contenteditable id="pm60" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pm61" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pm62" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pm63" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pm64" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pm65" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pm66" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pm67" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pm68" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pm69" size="2" ></p>&nbsp;
+</div>
+<div id="pm7" style="display: none; margin-top : 10px;">
+Process 8:&nbsp;&nbsp;
+<p data-placeholder="00" contenteditable id="pm70" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pm71" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pm72" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pm73" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pm74" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pm75" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pm76" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pm77" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pm78" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pm79" size="2" ></p>&nbsp;
+</div>
+<div id="pm8" style="display: none; margin-top : 10px;">
+Process 9:&nbsp;&nbsp;
+<p data-placeholder="00" contenteditable id="pm80" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pm81" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pm82" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pm83" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pm84" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pm85" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pm86" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pm87" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pm88" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pm89" size="2" ></p>&nbsp;
+</div>
+<div id="pm9" style="display: none; margin-top : 10px;">
+Process 10:
+<p data-placeholder="00" contenteditable id="pm90" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pm91" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pm92" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pm93" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pm94" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pm95" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pm96" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pm97" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pm98" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pm99" size="2" ></p>&nbsp;
+</div>
+</div>
+<br><br><br>
+<div id="pna" style="display: none; block;border-top:5px groove grey">
+<div id="pn0" style="display: none; "><div id="pmy" style="border-bottom:5px groove grey;background-color:#FF7F50"><center>Need Matrix</center><br></div>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<span id="prn1">Res1&nbsp;&nbsp;&nbsp;</span>
+<span id="prn2">Res2&nbsp;&nbsp;</span>
+<span id="prn3">Res3&nbsp;&nbsp;&nbsp;</span>
+<span id="prn4">Res4&nbsp;&nbsp;</span>
+<span id="prn5">Res5&nbsp;&nbsp;&nbsp;</span>
+<span id="prn6">Res6&nbsp;&nbsp;</span>
+<span id="prn7">Res7&nbsp;&nbsp;&nbsp;</span>
+<span id="prn8">Res8&nbsp;&nbsp;</span>
+<span id="prn9">Res9&nbsp;&nbsp;&nbsp;</span>
+<span id="prn10">Res10 </span><br>
+Process 1:&nbsp;&nbsp;
+<p data-placeholder="00" contenteditable id="pn00" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pn01" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pn02" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pn03" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pn04" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pn05" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pn06" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pn07" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pn08" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pn09" size="2" ></p>&nbsp;
+</div>
+<div id="pn1" style="display: none; margin-top : 10px;">
+Process 2:&nbsp;&nbsp;
+<p data-placeholder="00" contenteditable id="pn10" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pn11" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pn12" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pn13" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pn14" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pn15" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pn16" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pn17" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pn18" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pn19" size="2" ></p>&nbsp;
+</div>
+<div id="pn2" style="display: none; margin-top : 10px;">
+Process 3:&nbsp;&nbsp;
+<p data-placeholder="00" contenteditable id="pn20" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pn21" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pn22" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pn23" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pn24" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pn25" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pn26" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pn27" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pn28" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pn29" size="2" ></p>&nbsp;
+</div>
+<div id="pn3" style="display: none; margin-top : 10px;">
+Process 4:&nbsp;&nbsp;
+<p data-placeholder="00" contenteditable id="pn30" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pn31" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pn32" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pn33" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pn34" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pn35" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pn36" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pn37" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pn38" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pn39" size="2" ></p>&nbsp;
+</div>
+<div id="pn4" style="display: none; margin-top : 10px;">
+Process 5:&nbsp;&nbsp;
+<p data-placeholder="00" contenteditable id="pn40" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pn41" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pn42" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pn43" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pn44" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pn45" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pn46" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pn47" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pn48" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pn49" size="2" ></p>&nbsp;
+</div>
+<div id="pn5" style="display: none; margin-top : 10px;">
+Process 6:&nbsp;&nbsp;
+<p data-placeholder="00" contenteditable id="pn50" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pn51" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pn52" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pn53" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pn54" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pn55" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pn56" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pn57" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pn58" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pn59" size="2" ></p>&nbsp;
+</div>
+<div id="pn6" style="display: none; margin-top : 10px;">
+Process 7:&nbsp;&nbsp;
+<p data-placeholder="00" contenteditable id="pn60" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pn61" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pn62" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pn63" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pn64" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pn65" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pn66" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pn67" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pn68" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pn69" size="2" ></p>&nbsp;
+</div>
+<div id="pn7" style="display: none; margin-top : 10px;">
+Process 8:&nbsp;&nbsp;
+<p data-placeholder="00" contenteditable id="pn70" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pn71" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pn72" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pn73" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pn74" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pn75" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pn76" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pn77" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pn78" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pn79" size="2" ></p>&nbsp;
+</div>
+<div id="pn8" style="display: none; margin-top : 10px;">
+Process 9:&nbsp;&nbsp;
+<p data-placeholder="00" contenteditable id="pn80" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pn81" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pn82" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pn83" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pn84" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pn85" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pn86" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pn87" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pn88" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pn89" size="2" ></p>&nbsp;
+</div>
+<div id="pn9" style="display: none; margin-top : 10px;">
+Process 10:
+<p data-placeholder="00" contenteditable id="pn90" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pn91" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pn92" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pn93" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pn94" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pn95" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pn96" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pn97" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pn98" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pn99" size="2" ></p>&nbsp;
+</div>
+</div>
+<br><br><br>
+
+<div id="pavailable" style="display: none;">
+<div id="pava" style="border-top:5px groove grey;border-bottom:5px groove grey;background-color:#FF7F50">
+<center>Available Matrix</center><br></div>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<span id="pra1">Res1&nbsp;&nbsp;&nbsp;</span>
+<span id="pra2">Res2&nbsp;&nbsp;</span>
+<span id="pra3">Res3&nbsp;&nbsp;&nbsp;</span>
+<span id="pra4">Res4&nbsp;&nbsp;</span>
+<span id="pra5">Res5&nbsp;&nbsp;&nbsp;</span>
+<span id="pra6">Res6&nbsp;&nbsp;</span>
+<span id="pra7">Res7&nbsp;&nbsp;&nbsp;</span>
+<span id="pra8">Res8&nbsp;&nbsp;</span>
+<span id="pra9">Res9&nbsp;&nbsp;&nbsp;</span>
+<span id="pra10">Res10 </span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<p data-placeholder="00" contenteditable id="pav0" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pav1" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pav2" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pav3" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pav4" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pav5" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pav6" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pav7" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pav8" size="2" ></p>&nbsp;
+<p data-placeholder="00" contenteditable id="pav9" size="2" ></p>&nbsp;
+<br><br>
+
+<div id="1res" style="border-top:5px groove grey">
+<div id="2res" style="border-bottom:5px groove grey;background-color:#FF7F50">
+<center>Result</center><br></div>
+<br>
+<span id="Res1"><font style = "font-size : 2em;">Result : &nbsp;</font></span><p data-placeholder="&nbsp;&nbsp;&nbsp;" contenteditable id="Res0"></p>
+
+<br><br>
+<font style = "font-size : 1.5em;">Sheduling Sequence :&nbsp;&nbsp;</font>
+<p data-placeholder="&nbsp;&nbsp;&nbsp;" contenteditable id="res0"></p>&nbsp;
+<p data-placeholder="&nbsp;&nbsp;&nbsp;" contenteditable id="res1"></p>&nbsp;
+<p data-placeholder="&nbsp;&nbsp;&nbsp;" contenteditable id="res2"></p>&nbsp;
+<p data-placeholder="&nbsp;&nbsp;&nbsp;" contenteditable id="res3"></p>&nbsp;
+<p data-placeholder="&nbsp;&nbsp;&nbsp;" contenteditable id="res4"></p>&nbsp;
+<p data-placeholder="&nbsp;&nbsp;&nbsp;" contenteditable id="res5"></p>&nbsp;
+<p data-placeholder="&nbsp;&nbsp;&nbsp;" contenteditable id="res6"></p>&nbsp;
+<p data-placeholder="&nbsp;&nbsp;&nbsp;" contenteditable id="res7"></p>&nbsp;
+<p data-placeholder="&nbsp;&nbsp;&nbsp;" contenteditable id="res8"></p>&nbsp;
+<p data-placeholder="&nbsp;&nbsp;&nbsp;" contenteditable id="res9"></p>&nbsp;
+</div>
+
+<script>
+function MyFun(){
+ProTest();
+ResTest();
+pro();
+re();
+MyAvail();
+}
+function ProTest(){
+var k=document.getElementById("processes");
+var p=k.options[k.selectedIndex].value;
+var i=1;
+document.getElementById("allo").style.display = "none";
+document.getElementById("allo").style.display = "block";
+document.getElementById("a0").style.display = "none";
+document.getElementById("a1").style.display = "none";
+document.getElementById("a2").style.display = "none";
+document.getElementById("a3").style.display = "none";
+document.getElementById("a4").style.display = "none";
+document.getElementById("a5").style.display = "none";
+document.getElementById("a6").style.display = "none";
+document.getElementById("a7").style.display = "none";
+document.getElementById("a8").style.display = "none";
+document.getElementById("a9").style.display = "none";
+if(p>=i){document.getElementById("a0").style.display = "block";i++;}
+if(p>=i){document.getElementById("a1").style.display = "block";i++;}
+if(p>=i){document.getElementById("a2").style.display = "block";i++;}
+if(p>=i){document.getElementById("a3").style.display = "block";i++;}
+if(p>=i){document.getElementById("a4").style.display = "block";i++;}
+if(p>=i){document.getElementById("a5").style.display = "block";i++;}
+if(p>=i){document.getElementById("a6").style.display = "block";i++;}
+if(p>=i){document.getElementById("a7").style.display = "block";i++;}
+if(p>=i){document.getElementById("a8").style.display = "block";i++;}
+if(p>=i){document.getElementById("a9").style.display = "block";i++;}
+}
+function ResTest(){
+var k=document.getElementById("resources");
+var p=k.options[k.selectedIndex].value;
+document.getElementById("r1").style.display = "inline";
+document.getElementById("r2").style.display = "inline";
+document.getElementById("r3").style.display = "inline";
+document.getElementById("r4").style.display = "inline";
+document.getElementById("r5").style.display = "inline";
+document.getElementById("r6").style.display = "inline";
+document.getElementById("r7").style.display = "inline";
+document.getElementById("r8").style.display = "inline";
+document.getElementById("r9").style.display = "inline";
+document.getElementById("r10").style.display = "inline";
+
+document.getElementById("a99").style.display = "inline";
+document.getElementById("a89").style.display = "inline";
+document.getElementById("a79").style.display = "inline";
+document.getElementById("a69").style.display = "inline";
+document.getElementById("a59").style.display = "inline";
+document.getElementById("a49").style.display = "inline";
+document.getElementById("a39").style.display = "inline";
+document.getElementById("a29").style.display = "inline";
+document.getElementById("a19").style.display = "inline";
+document.getElementById("a09").style.display = "inline";
+document.getElementById("a98").style.display = "inline";
+document.getElementById("a88").style.display = "inline";
+document.getElementById("a78").style.display = "inline";
+document.getElementById("a68").style.display = "inline";
+document.getElementById("a58").style.display = "inline";
+document.getElementById("a48").style.display = "inline";
+document.getElementById("a38").style.display = "inline";
+document.getElementById("a28").style.display = "inline";
+document.getElementById("a18").style.display = "inline";
+document.getElementById("a08").style.display = "inline";
+document.getElementById("a97").style.display = "inline";
+document.getElementById("a87").style.display = "inline";
+document.getElementById("a77").style.display = "inline";
+document.getElementById("a67").style.display = "inline";
+document.getElementById("a57").style.display = "inline";
+document.getElementById("a47").style.display = "inline";
+document.getElementById("a37").style.display = "inline";
+document.getElementById("a27").style.display = "inline";
+document.getElementById("a17").style.display = "inline";
+document.getElementById("a07").style.display = "inline";
+document.getElementById("a96").style.display = "inline";
+document.getElementById("a86").style.display = "inline";
+document.getElementById("a76").style.display = "inline";
+document.getElementById("a66").style.display = "inline";
+document.getElementById("a56").style.display = "inline";
+document.getElementById("a46").style.display = "inline";
+document.getElementById("a36").style.display = "inline";
+document.getElementById("a26").style.display = "inline";
+document.getElementById("a16").style.display = "inline";
+document.getElementById("a06").style.display = "inline";
+document.getElementById("a95").style.display = "inline";
+document.getElementById("a85").style.display = "inline";
+document.getElementById("a75").style.display = "inline";
+document.getElementById("a65").style.display = "inline";
+document.getElementById("a55").style.display = "inline";
+document.getElementById("a45").style.display = "inline";
+document.getElementById("a35").style.display = "inline";
+document.getElementById("a25").style.display = "inline";
+document.getElementById("a15").style.display = "inline";
+document.getElementById("a05").style.display = "inline";
+document.getElementById("a94").style.display = "inline";
+document.getElementById("a84").style.display = "inline";
+document.getElementById("a74").style.display = "inline";
+document.getElementById("a64").style.display = "inline";
+document.getElementById("a54").style.display = "inline";
+document.getElementById("a44").style.display = "inline";
+document.getElementById("a34").style.display = "inline";
+document.getElementById("a24").style.display = "inline";
+document.getElementById("a14").style.display = "inline";
+document.getElementById("a04").style.display = "inline";
+document.getElementById("a93").style.display = "inline";
+document.getElementById("a83").style.display = "inline";
+document.getElementById("a73").style.display = "inline";
+document.getElementById("a63").style.display = "inline";
+document.getElementById("a53").style.display = "inline";
+document.getElementById("a43").style.display = "inline";
+document.getElementById("a33").style.display = "inline";
+document.getElementById("a23").style.display = "inline";
+document.getElementById("a13").style.display = "inline";
+document.getElementById("a03").style.display = "inline";
+document.getElementById("a92").style.display = "inline";
+document.getElementById("a82").style.display = "inline";
+document.getElementById("a72").style.display = "inline";
+document.getElementById("a62").style.display = "inline";
+document.getElementById("a52").style.display = "inline";
+document.getElementById("a42").style.display = "inline";
+document.getElementById("a32").style.display = "inline";
+document.getElementById("a22").style.display = "inline";
+document.getElementById("a12").style.display = "inline";
+document.getElementById("a02").style.display = "inline";
+document.getElementById("a91").style.display = "inline";
+document.getElementById("a81").style.display = "inline";
+document.getElementById("a71").style.display = "inline";
+document.getElementById("a61").style.display = "inline";
+document.getElementById("a51").style.display = "inline";
+document.getElementById("a41").style.display = "inline";
+document.getElementById("a31").style.display = "inline";
+document.getElementById("a21").style.display = "inline";
+document.getElementById("a11").style.display = "inline";
+document.getElementById("a01").style.display = "inline";
+document.getElementById("a90").style.display = "inline";
+document.getElementById("a80").style.display = "inline";
+document.getElementById("a70").style.display = "inline";
+document.getElementById("a60").style.display = "inline";
+document.getElementById("a50").style.display = "inline";
+document.getElementById("a40").style.display = "inline";
+document.getElementById("a30").style.display = "inline";
+document.getElementById("a20").style.display = "inline";
+document.getElementById("a10").style.display = "inline";
+document.getElementById("a00").style.display = "inline";
+
+
+
+
+
+var i=10;
+if(p<i){
+document.getElementById("r10").style.display = "none";
+document.getElementById("a99").style.display = "none";
+document.getElementById("a89").style.display = "none";
+document.getElementById("a79").style.display = "none";
+document.getElementById("a69").style.display = "none";
+document.getElementById("a59").style.display = "none";
+document.getElementById("a49").style.display = "none";
+document.getElementById("a39").style.display = "none";
+document.getElementById("a29").style.display = "none";
+document.getElementById("a19").style.display = "none";
+document.getElementById("a09").style.display = "none";
+i--;
+}
+if(p<i){
+document.getElementById("r9").style.display = "none";
+document.getElementById("a98").style.display = "none";
+document.getElementById("a88").style.display = "none";
+document.getElementById("a78").style.display = "none";
+document.getElementById("a68").style.display = "none";
+document.getElementById("a58").style.display = "none";
+document.getElementById("a48").style.display = "none";
+document.getElementById("a38").style.display = "none";
+document.getElementById("a28").style.display = "none";
+document.getElementById("a18").style.display = "none";
+document.getElementById("a08").style.display = "none";
+i--;
+}
+if(p<i){
+document.getElementById("r8").style.display = "none";
+document.getElementById("a97").style.display = "none";
+document.getElementById("a87").style.display = "none";
+document.getElementById("a77").style.display = "none";
+document.getElementById("a67").style.display = "none";
+document.getElementById("a57").style.display = "none";
+document.getElementById("a47").style.display = "none";
+document.getElementById("a37").style.display = "none";
+document.getElementById("a27").style.display = "none";
+document.getElementById("a17").style.display = "none";
+document.getElementById("a07").style.display = "none";
+i--;
+}
+if(p<i){
+document.getElementById("r7").style.display = "none";
+document.getElementById("a96").style.display = "none";
+document.getElementById("a86").style.display = "none";
+document.getElementById("a76").style.display = "none";
+document.getElementById("a66").style.display = "none";
+document.getElementById("a56").style.display = "none";
+document.getElementById("a46").style.display = "none";
+document.getElementById("a36").style.display = "none";
+document.getElementById("a26").style.display = "none";
+document.getElementById("a16").style.display = "none";
+document.getElementById("a06").style.display = "none";
+i--;
+}
+if(p<i){
+document.getElementById("r6").style.display = "none";
+document.getElementById("a95").style.display = "none";
+document.getElementById("a85").style.display = "none";
+document.getElementById("a75").style.display = "none";
+document.getElementById("a65").style.display = "none";
+document.getElementById("a55").style.display = "none";
+document.getElementById("a45").style.display = "none";
+document.getElementById("a35").style.display = "none";
+document.getElementById("a25").style.display = "none";
+document.getElementById("a15").style.display = "none";
+document.getElementById("a05").style.display = "none";
+i--;
+}
+if(p<i){
+document.getElementById("r5").style.display = "none";
+document.getElementById("a94").style.display = "none";
+document.getElementById("a84").style.display = "none";
+document.getElementById("a74").style.display = "none";
+document.getElementById("a64").style.display = "none";
+document.getElementById("a54").style.display = "none";
+document.getElementById("a44").style.display = "none";
+document.getElementById("a34").style.display = "none";
+document.getElementById("a24").style.display = "none";
+document.getElementById("a14").style.display = "none";
+document.getElementById("a04").style.display = "none";
+i--;
+}
+if(p<i){
+document.getElementById("r4").style.display = "none";
+document.getElementById("a93").style.display = "none";
+document.getElementById("a83").style.display = "none";
+document.getElementById("a73").style.display = "none";
+document.getElementById("a63").style.display = "none";
+document.getElementById("a53").style.display = "none";
+document.getElementById("a43").style.display = "none";
+document.getElementById("a33").style.display = "none";
+document.getElementById("a23").style.display = "none";
+document.getElementById("a13").style.display = "none";
+document.getElementById("a03").style.display = "none";
+i--;
+}
+if(p<i){
+document.getElementById("r3").style.display = "none";
+document.getElementById("a92").style.display = "none";
+document.getElementById("a82").style.display = "none";
+document.getElementById("a72").style.display = "none";
+document.getElementById("a62").style.display = "none";
+document.getElementById("a52").style.display = "none";
+document.getElementById("a42").style.display = "none";
+document.getElementById("a32").style.display = "none";
+document.getElementById("a22").style.display = "none";
+document.getElementById("a12").style.display = "none";
+document.getElementById("a02").style.display = "none";
+i--;
+}
+if(p<i){
+document.getElementById("r2").style.display = "none";
+document.getElementById("a91").style.display = "none";
+document.getElementById("a81").style.display = "none";
+document.getElementById("a71").style.display = "none";
+document.getElementById("a61").style.display = "none";
+document.getElementById("a51").style.display = "none";
+document.getElementById("a41").style.display = "none";
+document.getElementById("a31").style.display = "none";
+document.getElementById("a21").style.display = "none";
+document.getElementById("a11").style.display = "none";
+document.getElementById("a01").style.display = "none";
+i--;
+}
+if(p<i){
+document.getElementById("r1").style.display = "none";
+document.getElementById("a90").style.display = "none";
+document.getElementById("a80").style.display = "none";
+document.getElementById("a70").style.display = "none";
+document.getElementById("a60").style.display = "none";
+document.getElementById("a50").style.display = "none";
+document.getElementById("a40").style.display = "none";
+document.getElementById("a30").style.display = "none";
+document.getElementById("a20").style.display = "none";
+document.getElementById("a10").style.display = "none";
+document.getElementById("a00").style.display = "none";
+i--;
+}
+}
+function pro(){	
+var k=document.getElementById("processes");
+var p=k.options[k.selectedIndex].value;
+var i=1;
+document.getElementById("ma").style.display = "none";
+document.getElementById("ma").style.display = "block";
+document.getElementById("m0").style.display = "none";
+document.getElementById("m1").style.display = "none";
+document.getElementById("m2").style.display = "none";
+document.getElementById("m3").style.display = "none";
+document.getElementById("m4").style.display = "none";
+document.getElementById("m5").style.display = "none";
+document.getElementById("m6").style.display = "none";
+document.getElementById("m7").style.display = "none";
+document.getElementById("m8").style.display = "none";
+document.getElementById("m9").style.display = "none";
+if(p>=i){document.getElementById("m0").style.display = "block";i++;}
+if(p>=i){document.getElementById("m1").style.display = "block";i++;}
+if(p>=i){document.getElementById("m2").style.display = "block";i++;}
+if(p>=i){document.getElementById("m3").style.display = "block";i++;}
+if(p>=i){document.getElementById("m4").style.display = "block";i++;}
+if(p>=i){document.getElementById("m5").style.display = "block";i++;}
+if(p>=i){document.getElementById("m6").style.display = "block";i++;}
+if(p>=i){document.getElementById("m7").style.display = "block";i++;}
+if(p>=i){document.getElementById("m8").style.display = "block";i++;}
+if(p>=i){document.getElementById("m9").style.display = "block";i++;}
+}
+function re(){
+var k=document.getElementById("resources");
+var p=k.options[k.selectedIndex].value;
+document.getElementById("rm1").style.display = "inline";
+document.getElementById("rm2").style.display = "inline";
+document.getElementById("rm3").style.display = "inline";
+document.getElementById("rm4").style.display = "inline";
+document.getElementById("rm5").style.display = "inline";
+document.getElementById("rm6").style.display = "inline";
+document.getElementById("rm7").style.display = "inline";
+document.getElementById("rm8").style.display = "inline";
+document.getElementById("rm9").style.display = "inline";
+document.getElementById("rm10").style.display = "inline";
+document.getElementById("m99").style.display = "inline";
+document.getElementById("m89").style.display = "inline";
+document.getElementById("m79").style.display = "inline";
+document.getElementById("m69").style.display = "inline";
+document.getElementById("m59").style.display = "inline";
+document.getElementById("m49").style.display = "inline";
+document.getElementById("m39").style.display = "inline";
+document.getElementById("m29").style.display = "inline";
+document.getElementById("m19").style.display = "inline";
+document.getElementById("m09").style.display = "inline";
+document.getElementById("m98").style.display = "inline";
+document.getElementById("m88").style.display = "inline";
+document.getElementById("m78").style.display = "inline";
+document.getElementById("m68").style.display = "inline";
+document.getElementById("m58").style.display = "inline";
+document.getElementById("m48").style.display = "inline";
+document.getElementById("m38").style.display = "inline";
+document.getElementById("m28").style.display = "inline";
+document.getElementById("m18").style.display = "inline";
+document.getElementById("m08").style.display = "inline";
+document.getElementById("m97").style.display = "inline";
+document.getElementById("m87").style.display = "inline";
+document.getElementById("m77").style.display = "inline";
+document.getElementById("m67").style.display = "inline";
+document.getElementById("m57").style.display = "inline";
+document.getElementById("m47").style.display = "inline";
+document.getElementById("m37").style.display = "inline";
+document.getElementById("m27").style.display = "inline";
+document.getElementById("m17").style.display = "inline";
+document.getElementById("m07").style.display = "inline";
+document.getElementById("m96").style.display = "inline";
+document.getElementById("m86").style.display = "inline";
+document.getElementById("m76").style.display = "inline";
+document.getElementById("m66").style.display = "inline";
+document.getElementById("m56").style.display = "inline";
+document.getElementById("m46").style.display = "inline";
+document.getElementById("m36").style.display = "inline";
+document.getElementById("m26").style.display = "inline";
+document.getElementById("m16").style.display = "inline";
+document.getElementById("m06").style.display = "inline";
+document.getElementById("m95").style.display = "inline";
+document.getElementById("m85").style.display = "inline";
+document.getElementById("m75").style.display = "inline";
+document.getElementById("m65").style.display = "inline";
+document.getElementById("m55").style.display = "inline";
+document.getElementById("m45").style.display = "inline";
+document.getElementById("m35").style.display = "inline";
+document.getElementById("m25").style.display = "inline";
+document.getElementById("m15").style.display = "inline";
+document.getElementById("m05").style.display = "inline";
+document.getElementById("m94").style.display = "inline";
+document.getElementById("m84").style.display = "inline";
+document.getElementById("m74").style.display = "inline";
+document.getElementById("m64").style.display = "inline";
+document.getElementById("m54").style.display = "inline";
+document.getElementById("m44").style.display = "inline";
+document.getElementById("m34").style.display = "inline";
+document.getElementById("m24").style.display = "inline";
+document.getElementById("m14").style.display = "inline";
+document.getElementById("m04").style.display = "inline";
+document.getElementById("m93").style.display = "inline";
+document.getElementById("m83").style.display = "inline";
+document.getElementById("m73").style.display = "inline";
+document.getElementById("m63").style.display = "inline";
+document.getElementById("m53").style.display = "inline";
+document.getElementById("m43").style.display = "inline";
+document.getElementById("m33").style.display = "inline";
+document.getElementById("m23").style.display = "inline";
+document.getElementById("m13").style.display = "inline";
+document.getElementById("m03").style.display = "inline";
+document.getElementById("m92").style.display = "inline";
+document.getElementById("m82").style.display = "inline";
+document.getElementById("m72").style.display = "inline";
+document.getElementById("m62").style.display = "inline";
+document.getElementById("m52").style.display = "inline";
+document.getElementById("m42").style.display = "inline";
+document.getElementById("m32").style.display = "inline";
+document.getElementById("m22").style.display = "inline";
+document.getElementById("m12").style.display = "inline";
+document.getElementById("m02").style.display = "inline";
+document.getElementById("m91").style.display = "inline";
+document.getElementById("m81").style.display = "inline";
+document.getElementById("m71").style.display = "inline";
+document.getElementById("m61").style.display = "inline";
+document.getElementById("m51").style.display = "inline";
+document.getElementById("m41").style.display = "inline";
+document.getElementById("m31").style.display = "inline";
+document.getElementById("m21").style.display = "inline";
+document.getElementById("m11").style.display = "inline";
+document.getElementById("m01").style.display = "inline";
+document.getElementById("m90").style.display = "inline";
+document.getElementById("m80").style.display = "inline";
+document.getElementById("m70").style.display = "inline";
+document.getElementById("m60").style.display = "inline";
+document.getElementById("m50").style.display = "inline";
+document.getElementById("m40").style.display = "inline";
+document.getElementById("m30").style.display = "inline";
+document.getElementById("m20").style.display = "inline";
+document.getElementById("m10").style.display = "inline";
+document.getElementById("m00").style.display = "inline";
+
+
+
+
+
+var i=10;
+if(p<i){
+document.getElementById("rm10").style.display = "none";
+document.getElementById("m99").style.display = "none";
+document.getElementById("m89").style.display = "none";
+document.getElementById("m79").style.display = "none";
+document.getElementById("m69").style.display = "none";
+document.getElementById("m59").style.display = "none";
+document.getElementById("m49").style.display = "none";
+document.getElementById("m39").style.display = "none";
+document.getElementById("m29").style.display = "none";
+document.getElementById("m19").style.display = "none";
+document.getElementById("m09").style.display = "none";
+i--;
+}
+if(p<i){
+document.getElementById("rm9").style.display = "none";
+document.getElementById("m98").style.display = "none";
+document.getElementById("m88").style.display = "none";
+document.getElementById("m78").style.display = "none";
+document.getElementById("m68").style.display = "none";
+document.getElementById("m58").style.display = "none";
+document.getElementById("m48").style.display = "none";
+document.getElementById("m38").style.display = "none";
+document.getElementById("m28").style.display = "none";
+document.getElementById("m18").style.display = "none";
+document.getElementById("m08").style.display = "none";
+i--;
+}
+if(p<i){
+document.getElementById("rm8").style.display = "none";
+document.getElementById("m97").style.display = "none";
+document.getElementById("m87").style.display = "none";
+document.getElementById("m77").style.display = "none";
+document.getElementById("m67").style.display = "none";
+document.getElementById("m57").style.display = "none";
+document.getElementById("m47").style.display = "none";
+document.getElementById("m37").style.display = "none";
+document.getElementById("m27").style.display = "none";
+document.getElementById("m17").style.display = "none";
+document.getElementById("m07").style.display = "none";
+i--;
+}
+if(p<i){
+document.getElementById("rm7").style.display = "none";
+document.getElementById("m96").style.display = "none";
+document.getElementById("m86").style.display = "none";
+document.getElementById("m76").style.display = "none";
+document.getElementById("m66").style.display = "none";
+document.getElementById("m56").style.display = "none";
+document.getElementById("m46").style.display = "none";
+document.getElementById("m36").style.display = "none";
+document.getElementById("m26").style.display = "none";
+document.getElementById("m16").style.display = "none";
+document.getElementById("m06").style.display = "none";
+i--;
+}
+if(p<i){
+document.getElementById("rm6").style.display = "none";
+document.getElementById("m95").style.display = "none";
+document.getElementById("m85").style.display = "none";
+document.getElementById("m75").style.display = "none";
+document.getElementById("m65").style.display = "none";
+document.getElementById("m55").style.display = "none";
+document.getElementById("m45").style.display = "none";
+document.getElementById("m35").style.display = "none";
+document.getElementById("m25").style.display = "none";
+document.getElementById("m15").style.display = "none";
+document.getElementById("m05").style.display = "none";
+i--;
+}
+if(p<i){
+document.getElementById("rm5").style.display = "none";
+document.getElementById("m94").style.display = "none";
+document.getElementById("m84").style.display = "none";
+document.getElementById("m74").style.display = "none";
+document.getElementById("m64").style.display = "none";
+document.getElementById("m54").style.display = "none";
+document.getElementById("m44").style.display = "none";
+document.getElementById("m34").style.display = "none";
+document.getElementById("m24").style.display = "none";
+document.getElementById("m14").style.display = "none";
+document.getElementById("m04").style.display = "none";
+i--;
+}
+if(p<i){
+document.getElementById("rm4").style.display = "none";
+document.getElementById("m93").style.display = "none";
+document.getElementById("m83").style.display = "none";
+document.getElementById("m73").style.display = "none";
+document.getElementById("m63").style.display = "none";
+document.getElementById("m53").style.display = "none";
+document.getElementById("m43").style.display = "none";
+document.getElementById("m33").style.display = "none";
+document.getElementById("m23").style.display = "none";
+document.getElementById("m13").style.display = "none";
+document.getElementById("m03").style.display = "none";
+i--;
+}
+if(p<i){
+document.getElementById("rm3").style.display = "none";
+document.getElementById("m92").style.display = "none";
+document.getElementById("m82").style.display = "none";
+document.getElementById("m72").style.display = "none";
+document.getElementById("m62").style.display = "none";
+document.getElementById("m52").style.display = "none";
+document.getElementById("m42").style.display = "none";
+document.getElementById("m32").style.display = "none";
+document.getElementById("m22").style.display = "none";
+document.getElementById("m12").style.display = "none";
+document.getElementById("m02").style.display = "none";
+i--;
+}
+if(p<i){
+document.getElementById("rm2").style.display = "none";
+document.getElementById("m91").style.display = "none";
+document.getElementById("m81").style.display = "none";
+document.getElementById("m71").style.display = "none";
+document.getElementById("m61").style.display = "none";
+document.getElementById("m51").style.display = "none";
+document.getElementById("m41").style.display = "none";
+document.getElementById("m31").style.display = "none";
+document.getElementById("m21").style.display = "none";
+document.getElementById("m11").style.display = "none";
+document.getElementById("m01").style.display = "none";
+i--;
+}
+if(p<i){
+document.getElementById("rm1").style.display = "none";
+document.getElementById("m90").style.display = "none";
+document.getElementById("m80").style.display = "none";
+document.getElementById("m70").style.display = "none";
+document.getElementById("m60").style.display = "none";
+document.getElementById("m50").style.display = "none";
+document.getElementById("m40").style.display = "none";
+document.getElementById("m30").style.display = "none";
+document.getElementById("m20").style.display = "none";
+document.getElementById("m10").style.display = "none";
+document.getElementById("m00").style.display = "none";
+i--;
+}
+}
+
+function MyAvail(){
+var k=document.getElementById("resources");
+var p=k.options[k.selectedIndex].value;
+document.getElementById("available").style.display = "inline";
+document.getElementById("ra1").style.display = "inline";
+document.getElementById("ra2").style.display = "inline";
+document.getElementById("ra3").style.display = "inline";
+document.getElementById("ra4").style.display = "inline";
+document.getElementById("ra5").style.display = "inline";
+document.getElementById("ra6").style.display = "inline";
+document.getElementById("ra7").style.display = "inline";
+document.getElementById("ra8").style.display = "inline";
+document.getElementById("ra9").style.display = "inline";
+document.getElementById("ra10").style.display = "inline";
+document.getElementById("av1").style.display = "inline";
+document.getElementById("av2").style.display = "inline";
+document.getElementById("av3").style.display = "inline";
+document.getElementById("av4").style.display = "inline";
+document.getElementById("av5").style.display = "inline";
+document.getElementById("av6").style.display = "inline";
+document.getElementById("av7").style.display = "inline";
+document.getElementById("av8").style.display = "inline";
+document.getElementById("av9").style.display = "inline";
+document.getElementById("av0").style.display = "inline";
+
+var i=10;
+if(p<i){
+document.getElementById("ra10").style.display = "none";
+document.getElementById("av9").style.display = "none";
+i--;
+}
+if(p<i){
+document.getElementById("ra9").style.display = "none";
+document.getElementById("av8").style.display = "none";
+i--;
+}
+if(p<i){
+document.getElementById("ra8").style.display = "none";
+document.getElementById("av7").style.display = "none";
+i--;
+}
+if(p<i){
+document.getElementById("ra7").style.display = "none";
+document.getElementById("av6").style.display = "none";
+i--;
+}
+if(p<i){
+document.getElementById("ra6").style.display = "none";
+document.getElementById("av5").style.display = "none";
+i--;
+}
+if(p<i){
+document.getElementById("ra5").style.display = "none";
+document.getElementById("av4").style.display = "none";
+i--;
+}
+if(p<i){
+document.getElementById("ra4").style.display = "none";
+document.getElementById("av3").style.display = "none";
+i--;
+}
+if(p<i){
+document.getElementById("ra3").style.display = "none";
+document.getElementById("av2").style.display = "none";
+i--;
+}
+if(p<i){
+document.getElementById("ra2").style.display = "none";
+document.getElementById("av1").style.display = "none";
+i--;
+}
+if(p<i){
+document.getElementById("ra1").style.display = "none";
+document.getElementById("av0").style.display = "none";
+i--;
+}
+}
+
+function MyFun2(){
+ProTest2();
+ResTest2();
+pro2();
+re2();
+pron2();
+ren2();
+MyAvail2();
+}
+function ProTest2(){
+var k=document.getElementById("processes");
+var p=k.options[k.selectedIndex].value;
+var i=1;
+document.getElementById("pallo").style.display = "none";
+document.getElementById("pallo").style.display = "block";
+document.getElementById("pa0").style.display = "none";
+document.getElementById("pa1").style.display = "none";
+document.getElementById("pa2").style.display = "none";
+document.getElementById("pa3").style.display = "none";
+document.getElementById("pa4").style.display = "none";
+document.getElementById("pa5").style.display = "none";
+document.getElementById("pa6").style.display = "none";
+document.getElementById("pa7").style.display = "none";
+document.getElementById("pa8").style.display = "none";
+document.getElementById("pa9").style.display = "none";
+if(p>=i){document.getElementById("pa0").style.display = "block";i++;}
+if(p>=i){document.getElementById("pa1").style.display = "block";i++;}
+if(p>=i){document.getElementById("pa2").style.display = "block";i++;}
+if(p>=i){document.getElementById("pa3").style.display = "block";i++;}
+if(p>=i){document.getElementById("pa4").style.display = "block";i++;}
+if(p>=i){document.getElementById("pa5").style.display = "block";i++;}
+if(p>=i){document.getElementById("pa6").style.display = "block";i++;}
+if(p>=i){document.getElementById("pa7").style.display = "block";i++;}
+if(p>=i){document.getElementById("pa8").style.display = "block";i++;}
+if(p>=i){document.getElementById("pa9").style.display = "block";i++;}
+}
+function ResTest2(){
+var k=document.getElementById("resources");
+var p=k.options[k.selectedIndex].value;
+document.getElementById("pr1").style.display = "inline";
+document.getElementById("pr2").style.display = "inline";
+document.getElementById("pr3").style.display = "inline";
+document.getElementById("pr4").style.display = "inline";
+document.getElementById("pr5").style.display = "inline";
+document.getElementById("pr6").style.display = "inline";
+document.getElementById("pr7").style.display = "inline";
+document.getElementById("pr8").style.display = "inline";
+document.getElementById("pr9").style.display = "inline";
+document.getElementById("pr10").style.display = "inline";
+
+document.getElementById("pa99").style.display = "inline";
+document.getElementById("pa89").style.display = "inline";
+document.getElementById("pa79").style.display = "inline";
+document.getElementById("pa69").style.display = "inline";
+document.getElementById("pa59").style.display = "inline";
+document.getElementById("pa49").style.display = "inline";
+document.getElementById("pa39").style.display = "inline";
+document.getElementById("pa29").style.display = "inline";
+document.getElementById("pa19").style.display = "inline";
+document.getElementById("pa09").style.display = "inline";
+document.getElementById("pa98").style.display = "inline";
+document.getElementById("pa88").style.display = "inline";
+document.getElementById("pa78").style.display = "inline";
+document.getElementById("pa68").style.display = "inline";
+document.getElementById("pa58").style.display = "inline";
+document.getElementById("pa48").style.display = "inline";
+document.getElementById("pa38").style.display = "inline";
+document.getElementById("pa28").style.display = "inline";
+document.getElementById("pa18").style.display = "inline";
+document.getElementById("pa08").style.display = "inline";
+document.getElementById("pa97").style.display = "inline";
+document.getElementById("pa87").style.display = "inline";
+document.getElementById("pa77").style.display = "inline";
+document.getElementById("pa67").style.display = "inline";
+document.getElementById("pa57").style.display = "inline";
+document.getElementById("pa47").style.display = "inline";
+document.getElementById("pa37").style.display = "inline";
+document.getElementById("pa27").style.display = "inline";
+document.getElementById("pa17").style.display = "inline";
+document.getElementById("pa07").style.display = "inline";
+document.getElementById("pa96").style.display = "inline";
+document.getElementById("pa86").style.display = "inline";
+document.getElementById("pa76").style.display = "inline";
+document.getElementById("pa66").style.display = "inline";
+document.getElementById("pa56").style.display = "inline";
+document.getElementById("pa46").style.display = "inline";
+document.getElementById("pa36").style.display = "inline";
+document.getElementById("pa26").style.display = "inline";
+document.getElementById("pa16").style.display = "inline";
+document.getElementById("pa06").style.display = "inline";
+document.getElementById("pa95").style.display = "inline";
+document.getElementById("pa85").style.display = "inline";
+document.getElementById("pa75").style.display = "inline";
+document.getElementById("pa65").style.display = "inline";
+document.getElementById("pa55").style.display = "inline";
+document.getElementById("pa45").style.display = "inline";
+document.getElementById("pa35").style.display = "inline";
+document.getElementById("pa25").style.display = "inline";
+document.getElementById("pa15").style.display = "inline";
+document.getElementById("pa05").style.display = "inline";
+document.getElementById("pa94").style.display = "inline";
+document.getElementById("pa84").style.display = "inline";
+document.getElementById("pa74").style.display = "inline";
+document.getElementById("pa64").style.display = "inline";
+document.getElementById("pa54").style.display = "inline";
+document.getElementById("pa44").style.display = "inline";
+document.getElementById("pa34").style.display = "inline";
+document.getElementById("pa24").style.display = "inline";
+document.getElementById("pa14").style.display = "inline";
+document.getElementById("pa04").style.display = "inline";
+document.getElementById("pa93").style.display = "inline";
+document.getElementById("pa83").style.display = "inline";
+document.getElementById("pa73").style.display = "inline";
+document.getElementById("pa63").style.display = "inline";
+document.getElementById("pa53").style.display = "inline";
+document.getElementById("pa43").style.display = "inline";
+document.getElementById("pa33").style.display = "inline";
+document.getElementById("pa23").style.display = "inline";
+document.getElementById("pa13").style.display = "inline";
+document.getElementById("pa03").style.display = "inline";
+document.getElementById("pa92").style.display = "inline";
+document.getElementById("pa82").style.display = "inline";
+document.getElementById("pa72").style.display = "inline";
+document.getElementById("pa62").style.display = "inline";
+document.getElementById("pa52").style.display = "inline";
+document.getElementById("pa42").style.display = "inline";
+document.getElementById("pa32").style.display = "inline";
+document.getElementById("pa22").style.display = "inline";
+document.getElementById("pa12").style.display = "inline";
+document.getElementById("pa02").style.display = "inline";
+document.getElementById("pa91").style.display = "inline";
+document.getElementById("pa81").style.display = "inline";
+document.getElementById("pa71").style.display = "inline";
+document.getElementById("pa61").style.display = "inline";
+document.getElementById("pa51").style.display = "inline";
+document.getElementById("pa41").style.display = "inline";
+document.getElementById("pa31").style.display = "inline";
+document.getElementById("pa21").style.display = "inline";
+document.getElementById("pa11").style.display = "inline";
+document.getElementById("pa01").style.display = "inline";
+document.getElementById("pa90").style.display = "inline";
+document.getElementById("pa80").style.display = "inline";
+document.getElementById("pa70").style.display = "inline";
+document.getElementById("pa60").style.display = "inline";
+document.getElementById("pa50").style.display = "inline";
+document.getElementById("pa40").style.display = "inline";
+document.getElementById("pa30").style.display = "inline";
+document.getElementById("pa20").style.display = "inline";
+document.getElementById("pa10").style.display = "inline";
+document.getElementById("pa00").style.display = "inline";
+
+
+
+
+
+var i=10;
+if(p<i){
+document.getElementById("pr10").style.display = "none";
+document.getElementById("pa99").style.display = "none";
+document.getElementById("pa89").style.display = "none";
+document.getElementById("pa79").style.display = "none";
+document.getElementById("pa69").style.display = "none";
+document.getElementById("pa59").style.display = "none";
+document.getElementById("pa49").style.display = "none";
+document.getElementById("pa39").style.display = "none";
+document.getElementById("pa29").style.display = "none";
+document.getElementById("pa19").style.display = "none";
+document.getElementById("pa09").style.display = "none";
+i--;
+}
+if(p<i){
+document.getElementById("pr9").style.display = "none";
+document.getElementById("pa98").style.display = "none";
+document.getElementById("pa88").style.display = "none";
+document.getElementById("pa78").style.display = "none";
+document.getElementById("pa68").style.display = "none";
+document.getElementById("pa58").style.display = "none";
+document.getElementById("pa48").style.display = "none";
+document.getElementById("pa38").style.display = "none";
+document.getElementById("pa28").style.display = "none";
+document.getElementById("pa18").style.display = "none";
+document.getElementById("pa08").style.display = "none";
+i--;
+}
+if(p<i){
+document.getElementById("pr8").style.display = "none";
+document.getElementById("pa97").style.display = "none";
+document.getElementById("pa87").style.display = "none";
+document.getElementById("pa77").style.display = "none";
+document.getElementById("pa67").style.display = "none";
+document.getElementById("pa57").style.display = "none";
+document.getElementById("pa47").style.display = "none";
+document.getElementById("pa37").style.display = "none";
+document.getElementById("pa27").style.display = "none";
+document.getElementById("pa17").style.display = "none";
+document.getElementById("pa07").style.display = "none";
+i--;
+}
+if(p<i){
+document.getElementById("pr7").style.display = "none";
+document.getElementById("pa96").style.display = "none";
+document.getElementById("pa86").style.display = "none";
+document.getElementById("pa76").style.display = "none";
+document.getElementById("pa66").style.display = "none";
+document.getElementById("pa56").style.display = "none";
+document.getElementById("pa46").style.display = "none";
+document.getElementById("pa36").style.display = "none";
+document.getElementById("pa26").style.display = "none";
+document.getElementById("pa16").style.display = "none";
+document.getElementById("pa06").style.display = "none";
+i--;
+}
+if(p<i){
+document.getElementById("pr6").style.display = "none";
+document.getElementById("pa95").style.display = "none";
+document.getElementById("pa85").style.display = "none";
+document.getElementById("pa75").style.display = "none";
+document.getElementById("pa65").style.display = "none";
+document.getElementById("pa55").style.display = "none";
+document.getElementById("pa45").style.display = "none";
+document.getElementById("pa35").style.display = "none";
+document.getElementById("pa25").style.display = "none";
+document.getElementById("pa15").style.display = "none";
+document.getElementById("pa05").style.display = "none";
+i--;
+}
+if(p<i){
+document.getElementById("pr5").style.display = "none";
+document.getElementById("pa94").style.display = "none";
+document.getElementById("pa84").style.display = "none";
+document.getElementById("pa74").style.display = "none";
+document.getElementById("pa64").style.display = "none";
+document.getElementById("pa54").style.display = "none";
+document.getElementById("pa44").style.display = "none";
+document.getElementById("pa34").style.display = "none";
+document.getElementById("pa24").style.display = "none";
+document.getElementById("pa14").style.display = "none";
+document.getElementById("pa04").style.display = "none";
+i--;
+}
+if(p<i){
+document.getElementById("pr4").style.display = "none";
+document.getElementById("pa93").style.display = "none";
+document.getElementById("pa83").style.display = "none";
+document.getElementById("pa73").style.display = "none";
+document.getElementById("pa63").style.display = "none";
+document.getElementById("pa53").style.display = "none";
+document.getElementById("pa43").style.display = "none";
+document.getElementById("pa33").style.display = "none";
+document.getElementById("pa23").style.display = "none";
+document.getElementById("pa13").style.display = "none";
+document.getElementById("pa03").style.display = "none";
+i--;
+}
+if(p<i){
+document.getElementById("pr3").style.display = "none";
+document.getElementById("pa92").style.display = "none";
+document.getElementById("pa82").style.display = "none";
+document.getElementById("pa72").style.display = "none";
+document.getElementById("pa62").style.display = "none";
+document.getElementById("pa52").style.display = "none";
+document.getElementById("pa42").style.display = "none";
+document.getElementById("pa32").style.display = "none";
+document.getElementById("pa22").style.display = "none";
+document.getElementById("pa12").style.display = "none";
+document.getElementById("pa02").style.display = "none";
+i--;
+}
+if(p<i){
+document.getElementById("pr2").style.display = "none";
+document.getElementById("pa91").style.display = "none";
+document.getElementById("pa81").style.display = "none";
+document.getElementById("pa71").style.display = "none";
+document.getElementById("pa61").style.display = "none";
+document.getElementById("pa51").style.display = "none";
+document.getElementById("pa41").style.display = "none";
+document.getElementById("pa31").style.display = "none";
+document.getElementById("pa21").style.display = "none";
+document.getElementById("pa11").style.display = "none";
+document.getElementById("pa01").style.display = "none";
+i--;
+}
+if(p<i){
+document.getElementById("pr1").style.display = "none";
+document.getElementById("pa90").style.display = "none";
+document.getElementById("pa80").style.display = "none";
+document.getElementById("pa70").style.display = "none";
+document.getElementById("pa60").style.display = "none";
+document.getElementById("pa50").style.display = "none";
+document.getElementById("pa40").style.display = "none";
+document.getElementById("pa30").style.display = "none";
+document.getElementById("pa20").style.display = "none";
+document.getElementById("pa10").style.display = "none";
+document.getElementById("pa00").style.display = "none";
+i--;
+}
+}
+function pro2(){	
+var k=document.getElementById("processes");
+var p=k.options[k.selectedIndex].value;
+var i=1;
+document.getElementById("pma").style.display = "none";
+document.getElementById("pma").style.display = "block";
+document.getElementById("pm0").style.display = "none";
+document.getElementById("pm1").style.display = "none";
+document.getElementById("pm2").style.display = "none";
+document.getElementById("pm3").style.display = "none";
+document.getElementById("pm4").style.display = "none";
+document.getElementById("pm5").style.display = "none";
+document.getElementById("pm6").style.display = "none";
+document.getElementById("pm7").style.display = "none";
+document.getElementById("pm8").style.display = "none";
+document.getElementById("pm9").style.display = "none";
+if(p>=i){document.getElementById("pm0").style.display = "block";i++;}
+if(p>=i){document.getElementById("pm1").style.display = "block";i++;}
+if(p>=i){document.getElementById("pm2").style.display = "block";i++;}
+if(p>=i){document.getElementById("pm3").style.display = "block";i++;}
+if(p>=i){document.getElementById("pm4").style.display = "block";i++;}
+if(p>=i){document.getElementById("pm5").style.display = "block";i++;}
+if(p>=i){document.getElementById("pm6").style.display = "block";i++;}
+if(p>=i){document.getElementById("pm7").style.display = "block";i++;}
+if(p>=i){document.getElementById("pm8").style.display = "block";i++;}
+if(p>=i){document.getElementById("pm9").style.display = "block";i++;}
+}
+function re2(){
+var k=document.getElementById("resources");
+var p=k.options[k.selectedIndex].value;
+document.getElementById("prm1").style.display = "inline";
+document.getElementById("prm2").style.display = "inline";
+document.getElementById("prm3").style.display = "inline";
+document.getElementById("prm4").style.display = "inline";
+document.getElementById("prm5").style.display = "inline";
+document.getElementById("prm6").style.display = "inline";
+document.getElementById("prm7").style.display = "inline";
+document.getElementById("prm8").style.display = "inline";
+document.getElementById("prm9").style.display = "inline";
+document.getElementById("prm10").style.display = "inline";
+document.getElementById("pm99").style.display = "inline";
+document.getElementById("pm89").style.display = "inline";
+document.getElementById("pm79").style.display = "inline";
+document.getElementById("pm69").style.display = "inline";
+document.getElementById("pm59").style.display = "inline";
+document.getElementById("pm49").style.display = "inline";
+document.getElementById("pm39").style.display = "inline";
+document.getElementById("pm29").style.display = "inline";
+document.getElementById("pm19").style.display = "inline";
+document.getElementById("pm09").style.display = "inline";
+document.getElementById("pm98").style.display = "inline";
+document.getElementById("pm88").style.display = "inline";
+document.getElementById("pm78").style.display = "inline";
+document.getElementById("pm68").style.display = "inline";
+document.getElementById("pm58").style.display = "inline";
+document.getElementById("pm48").style.display = "inline";
+document.getElementById("pm38").style.display = "inline";
+document.getElementById("pm28").style.display = "inline";
+document.getElementById("pm18").style.display = "inline";
+document.getElementById("pm08").style.display = "inline";
+document.getElementById("pm97").style.display = "inline";
+document.getElementById("pm87").style.display = "inline";
+document.getElementById("pm77").style.display = "inline";
+document.getElementById("pm67").style.display = "inline";
+document.getElementById("pm57").style.display = "inline";
+document.getElementById("pm47").style.display = "inline";
+document.getElementById("pm37").style.display = "inline";
+document.getElementById("pm27").style.display = "inline";
+document.getElementById("pm17").style.display = "inline";
+document.getElementById("pm07").style.display = "inline";
+document.getElementById("pm96").style.display = "inline";
+document.getElementById("pm86").style.display = "inline";
+document.getElementById("pm76").style.display = "inline";
+document.getElementById("pm66").style.display = "inline";
+document.getElementById("pm56").style.display = "inline";
+document.getElementById("pm46").style.display = "inline";
+document.getElementById("pm36").style.display = "inline";
+document.getElementById("pm26").style.display = "inline";
+document.getElementById("pm16").style.display = "inline";
+document.getElementById("pm06").style.display = "inline";
+document.getElementById("pm95").style.display = "inline";
+document.getElementById("pm85").style.display = "inline";
+document.getElementById("pm75").style.display = "inline";
+document.getElementById("pm65").style.display = "inline";
+document.getElementById("pm55").style.display = "inline";
+document.getElementById("pm45").style.display = "inline";
+document.getElementById("pm35").style.display = "inline";
+document.getElementById("pm25").style.display = "inline";
+document.getElementById("pm15").style.display = "inline";
+document.getElementById("pm05").style.display = "inline";
+document.getElementById("pm94").style.display = "inline";
+document.getElementById("pm84").style.display = "inline";
+document.getElementById("pm74").style.display = "inline";
+document.getElementById("pm64").style.display = "inline";
+document.getElementById("pm54").style.display = "inline";
+document.getElementById("pm44").style.display = "inline";
+document.getElementById("pm34").style.display = "inline";
+document.getElementById("pm24").style.display = "inline";
+document.getElementById("pm14").style.display = "inline";
+document.getElementById("pm04").style.display = "inline";
+document.getElementById("pm93").style.display = "inline";
+document.getElementById("pm83").style.display = "inline";
+document.getElementById("pm73").style.display = "inline";
+document.getElementById("pm63").style.display = "inline";
+document.getElementById("pm53").style.display = "inline";
+document.getElementById("pm43").style.display = "inline";
+document.getElementById("pm33").style.display = "inline";
+document.getElementById("pm23").style.display = "inline";
+document.getElementById("pm13").style.display = "inline";
+document.getElementById("pm03").style.display = "inline";
+document.getElementById("pm92").style.display = "inline";
+document.getElementById("pm82").style.display = "inline";
+document.getElementById("pm72").style.display = "inline";
+document.getElementById("pm62").style.display = "inline";
+document.getElementById("pm52").style.display = "inline";
+document.getElementById("pm42").style.display = "inline";
+document.getElementById("pm32").style.display = "inline";
+document.getElementById("pm22").style.display = "inline";
+document.getElementById("pm12").style.display = "inline";
+document.getElementById("pm02").style.display = "inline";
+document.getElementById("pm91").style.display = "inline";
+document.getElementById("pm81").style.display = "inline";
+document.getElementById("pm71").style.display = "inline";
+document.getElementById("pm61").style.display = "inline";
+document.getElementById("pm51").style.display = "inline";
+document.getElementById("pm41").style.display = "inline";
+document.getElementById("pm31").style.display = "inline";
+document.getElementById("pm21").style.display = "inline";
+document.getElementById("pm11").style.display = "inline";
+document.getElementById("pm01").style.display = "inline";
+document.getElementById("pm90").style.display = "inline";
+document.getElementById("pm80").style.display = "inline";
+document.getElementById("pm70").style.display = "inline";
+document.getElementById("pm60").style.display = "inline";
+document.getElementById("pm50").style.display = "inline";
+document.getElementById("pm40").style.display = "inline";
+document.getElementById("pm30").style.display = "inline";
+document.getElementById("pm20").style.display = "inline";
+document.getElementById("pm10").style.display = "inline";
+document.getElementById("pm00").style.display = "inline";
+
+
+
+
+
+var i=10;
+if(p<i){
+document.getElementById("prm10").style.display = "none";
+document.getElementById("pm99").style.display = "none";
+document.getElementById("pm89").style.display = "none";
+document.getElementById("pm79").style.display = "none";
+document.getElementById("pm69").style.display = "none";
+document.getElementById("pm59").style.display = "none";
+document.getElementById("pm49").style.display = "none";
+document.getElementById("pm39").style.display = "none";
+document.getElementById("pm29").style.display = "none";
+document.getElementById("pm19").style.display = "none";
+document.getElementById("pm09").style.display = "none";
+i--;
+}
+if(p<i){
+document.getElementById("prm9").style.display = "none";
+document.getElementById("pm98").style.display = "none";
+document.getElementById("pm88").style.display = "none";
+document.getElementById("pm78").style.display = "none";
+document.getElementById("pm68").style.display = "none";
+document.getElementById("pm58").style.display = "none";
+document.getElementById("pm48").style.display = "none";
+document.getElementById("pm38").style.display = "none";
+document.getElementById("pm28").style.display = "none";
+document.getElementById("pm18").style.display = "none";
+document.getElementById("pm08").style.display = "none";
+i--;
+}
+if(p<i){
+document.getElementById("prm8").style.display = "none";
+document.getElementById("pm97").style.display = "none";
+document.getElementById("pm87").style.display = "none";
+document.getElementById("pm77").style.display = "none";
+document.getElementById("pm67").style.display = "none";
+document.getElementById("pm57").style.display = "none";
+document.getElementById("pm47").style.display = "none";
+document.getElementById("pm37").style.display = "none";
+document.getElementById("pm27").style.display = "none";
+document.getElementById("pm17").style.display = "none";
+document.getElementById("pm07").style.display = "none";
+i--;
+}
+if(p<i){
+document.getElementById("prm7").style.display = "none";
+document.getElementById("pm96").style.display = "none";
+document.getElementById("pm86").style.display = "none";
+document.getElementById("pm76").style.display = "none";
+document.getElementById("pm66").style.display = "none";
+document.getElementById("pm56").style.display = "none";
+document.getElementById("pm46").style.display = "none";
+document.getElementById("pm36").style.display = "none";
+document.getElementById("pm26").style.display = "none";
+document.getElementById("pm16").style.display = "none";
+document.getElementById("pm06").style.display = "none";
+i--;
+}
+if(p<i){
+document.getElementById("prm6").style.display = "none";
+document.getElementById("pm95").style.display = "none";
+document.getElementById("pm85").style.display = "none";
+document.getElementById("pm75").style.display = "none";
+document.getElementById("pm65").style.display = "none";
+document.getElementById("pm55").style.display = "none";
+document.getElementById("pm45").style.display = "none";
+document.getElementById("pm35").style.display = "none";
+document.getElementById("pm25").style.display = "none";
+document.getElementById("pm15").style.display = "none";
+document.getElementById("pm05").style.display = "none";
+i--;
+}
+if(p<i){
+document.getElementById("prm5").style.display = "none";
+document.getElementById("pm94").style.display = "none";
+document.getElementById("pm84").style.display = "none";
+document.getElementById("pm74").style.display = "none";
+document.getElementById("pm64").style.display = "none";
+document.getElementById("pm54").style.display = "none";
+document.getElementById("pm44").style.display = "none";
+document.getElementById("pm34").style.display = "none";
+document.getElementById("pm24").style.display = "none";
+document.getElementById("pm14").style.display = "none";
+document.getElementById("pm04").style.display = "none";
+i--;
+}
+if(p<i){
+document.getElementById("prm4").style.display = "none";
+document.getElementById("pm93").style.display = "none";
+document.getElementById("pm83").style.display = "none";
+document.getElementById("pm73").style.display = "none";
+document.getElementById("pm63").style.display = "none";
+document.getElementById("pm53").style.display = "none";
+document.getElementById("pm43").style.display = "none";
+document.getElementById("pm33").style.display = "none";
+document.getElementById("pm23").style.display = "none";
+document.getElementById("pm13").style.display = "none";
+document.getElementById("pm03").style.display = "none";
+i--;
+}
+if(p<i){
+document.getElementById("prm3").style.display = "none";
+document.getElementById("pm92").style.display = "none";
+document.getElementById("pm82").style.display = "none";
+document.getElementById("pm72").style.display = "none";
+document.getElementById("pm62").style.display = "none";
+document.getElementById("pm52").style.display = "none";
+document.getElementById("pm42").style.display = "none";
+document.getElementById("pm32").style.display = "none";
+document.getElementById("pm22").style.display = "none";
+document.getElementById("pm12").style.display = "none";
+document.getElementById("pm02").style.display = "none";
+i--;
+}
+if(p<i){
+document.getElementById("prm2").style.display = "none";
+document.getElementById("pm91").style.display = "none";
+document.getElementById("pm81").style.display = "none";
+document.getElementById("pm71").style.display = "none";
+document.getElementById("pm61").style.display = "none";
+document.getElementById("pm51").style.display = "none";
+document.getElementById("pm41").style.display = "none";
+document.getElementById("pm31").style.display = "none";
+document.getElementById("pm21").style.display = "none";
+document.getElementById("pm11").style.display = "none";
+document.getElementById("pm01").style.display = "none";
+i--;
+}
+if(p<i){
+document.getElementById("prm1").style.display = "none";
+document.getElementById("pm90").style.display = "none";
+document.getElementById("pm80").style.display = "none";
+document.getElementById("pm70").style.display = "none";
+document.getElementById("pm60").style.display = "none";
+document.getElementById("pm50").style.display = "none";
+document.getElementById("pm40").style.display = "none";
+document.getElementById("pm30").style.display = "none";
+document.getElementById("pm20").style.display = "none";
+document.getElementById("pm10").style.display = "none";
+document.getElementById("pm00").style.display = "none";
+i--;
+}
+}
+
+function pron2(){	
+var k=document.getElementById("processes");
+var p=k.options[k.selectedIndex].value;
+var i=1;
+document.getElementById("pna").style.display = "none";
+document.getElementById("pna").style.display = "block";
+document.getElementById("pn0").style.display = "none";
+document.getElementById("pn1").style.display = "none";
+document.getElementById("pn2").style.display = "none";
+document.getElementById("pn3").style.display = "none";
+document.getElementById("pn4").style.display = "none";
+document.getElementById("pn5").style.display = "none";
+document.getElementById("pn6").style.display = "none";
+document.getElementById("pn7").style.display = "none";
+document.getElementById("pn8").style.display = "none";
+document.getElementById("pn9").style.display = "none";
+if(p>=i){document.getElementById("pn0").style.display = "block";i++;}
+if(p>=i){document.getElementById("pn1").style.display = "block";i++;}
+if(p>=i){document.getElementById("pn2").style.display = "block";i++;}
+if(p>=i){document.getElementById("pn3").style.display = "block";i++;}
+if(p>=i){document.getElementById("pn4").style.display = "block";i++;}
+if(p>=i){document.getElementById("pn5").style.display = "block";i++;}
+if(p>=i){document.getElementById("pn6").style.display = "block";i++;}
+if(p>=i){document.getElementById("pn7").style.display = "block";i++;}
+if(p>=i){document.getElementById("pn8").style.display = "block";i++;}
+if(p>=i){document.getElementById("pn9").style.display = "block";i++;}
+}
+function ren2(){
+var k=document.getElementById("resources");
+var p=k.options[k.selectedIndex].value;
+document.getElementById("prn1").style.display = "inline";
+document.getElementById("prn2").style.display = "inline";
+document.getElementById("prn3").style.display = "inline";
+document.getElementById("prn4").style.display = "inline";
+document.getElementById("prn5").style.display = "inline";
+document.getElementById("prn6").style.display = "inline";
+document.getElementById("prn7").style.display = "inline";
+document.getElementById("prn8").style.display = "inline";
+document.getElementById("prn9").style.display = "inline";
+document.getElementById("prn10").style.display = "inline";
+document.getElementById("pn99").style.display = "inline";
+document.getElementById("pn89").style.display = "inline";
+document.getElementById("pn79").style.display = "inline";
+document.getElementById("pn69").style.display = "inline";
+document.getElementById("pn59").style.display = "inline";
+document.getElementById("pn49").style.display = "inline";
+document.getElementById("pn39").style.display = "inline";
+document.getElementById("pn29").style.display = "inline";
+document.getElementById("pn19").style.display = "inline";
+document.getElementById("pn09").style.display = "inline";
+document.getElementById("pn98").style.display = "inline";
+document.getElementById("pn88").style.display = "inline";
+document.getElementById("pn78").style.display = "inline";
+document.getElementById("pn68").style.display = "inline";
+document.getElementById("pn58").style.display = "inline";
+document.getElementById("pn48").style.display = "inline";
+document.getElementById("pn38").style.display = "inline";
+document.getElementById("pn28").style.display = "inline";
+document.getElementById("pn18").style.display = "inline";
+document.getElementById("pn08").style.display = "inline";
+document.getElementById("pn97").style.display = "inline";
+document.getElementById("pn87").style.display = "inline";
+document.getElementById("pn77").style.display = "inline";
+document.getElementById("pn67").style.display = "inline";
+document.getElementById("pn57").style.display = "inline";
+document.getElementById("pn47").style.display = "inline";
+document.getElementById("pn37").style.display = "inline";
+document.getElementById("pn27").style.display = "inline";
+document.getElementById("pn17").style.display = "inline";
+document.getElementById("pn07").style.display = "inline";
+document.getElementById("pn96").style.display = "inline";
+document.getElementById("pn86").style.display = "inline";
+document.getElementById("pn76").style.display = "inline";
+document.getElementById("pn66").style.display = "inline";
+document.getElementById("pn56").style.display = "inline";
+document.getElementById("pn46").style.display = "inline";
+document.getElementById("pn36").style.display = "inline";
+document.getElementById("pn26").style.display = "inline";
+document.getElementById("pn16").style.display = "inline";
+document.getElementById("pn06").style.display = "inline";
+document.getElementById("pn95").style.display = "inline";
+document.getElementById("pn85").style.display = "inline";
+document.getElementById("pn75").style.display = "inline";
+document.getElementById("pn65").style.display = "inline";
+document.getElementById("pn55").style.display = "inline";
+document.getElementById("pn45").style.display = "inline";
+document.getElementById("pn35").style.display = "inline";
+document.getElementById("pn25").style.display = "inline";
+document.getElementById("pn15").style.display = "inline";
+document.getElementById("pn05").style.display = "inline";
+document.getElementById("pn94").style.display = "inline";
+document.getElementById("pn84").style.display = "inline";
+document.getElementById("pn74").style.display = "inline";
+document.getElementById("pn64").style.display = "inline";
+document.getElementById("pn54").style.display = "inline";
+document.getElementById("pn44").style.display = "inline";
+document.getElementById("pn34").style.display = "inline";
+document.getElementById("pn24").style.display = "inline";
+document.getElementById("pn14").style.display = "inline";
+document.getElementById("pn04").style.display = "inline";
+document.getElementById("pn93").style.display = "inline";
+document.getElementById("pn83").style.display = "inline";
+document.getElementById("pn73").style.display = "inline";
+document.getElementById("pn63").style.display = "inline";
+document.getElementById("pn53").style.display = "inline";
+document.getElementById("pn43").style.display = "inline";
+document.getElementById("pn33").style.display = "inline";
+document.getElementById("pn23").style.display = "inline";
+document.getElementById("pn13").style.display = "inline";
+document.getElementById("pn03").style.display = "inline";
+document.getElementById("pn92").style.display = "inline";
+document.getElementById("pn82").style.display = "inline";
+document.getElementById("pn72").style.display = "inline";
+document.getElementById("pn62").style.display = "inline";
+document.getElementById("pn52").style.display = "inline";
+document.getElementById("pn42").style.display = "inline";
+document.getElementById("pn32").style.display = "inline";
+document.getElementById("pn22").style.display = "inline";
+document.getElementById("pn12").style.display = "inline";
+document.getElementById("pn02").style.display = "inline";
+document.getElementById("pn91").style.display = "inline";
+document.getElementById("pn81").style.display = "inline";
+document.getElementById("pn71").style.display = "inline";
+document.getElementById("pn61").style.display = "inline";
+document.getElementById("pn51").style.display = "inline";
+document.getElementById("pn41").style.display = "inline";
+document.getElementById("pn31").style.display = "inline";
+document.getElementById("pn21").style.display = "inline";
+document.getElementById("pn11").style.display = "inline";
+document.getElementById("pn01").style.display = "inline";
+document.getElementById("pn90").style.display = "inline";
+document.getElementById("pn80").style.display = "inline";
+document.getElementById("pn70").style.display = "inline";
+document.getElementById("pn60").style.display = "inline";
+document.getElementById("pn50").style.display = "inline";
+document.getElementById("pn40").style.display = "inline";
+document.getElementById("pn30").style.display = "inline";
+document.getElementById("pn20").style.display = "inline";
+document.getElementById("pn10").style.display = "inline";
+document.getElementById("pn00").style.display = "inline";
+
+
+
+
+
+var i=10;
+if(p<i){
+document.getElementById("prn10").style.display = "none";
+document.getElementById("pn99").style.display = "none";
+document.getElementById("pn89").style.display = "none";
+document.getElementById("pn79").style.display = "none";
+document.getElementById("pn69").style.display = "none";
+document.getElementById("pn59").style.display = "none";
+document.getElementById("pn49").style.display = "none";
+document.getElementById("pn39").style.display = "none";
+document.getElementById("pn29").style.display = "none";
+document.getElementById("pn19").style.display = "none";
+document.getElementById("pn09").style.display = "none";
+i--;
+}
+if(p<i){
+document.getElementById("prn9").style.display = "none";
+document.getElementById("pn98").style.display = "none";
+document.getElementById("pn88").style.display = "none";
+document.getElementById("pn78").style.display = "none";
+document.getElementById("pn68").style.display = "none";
+document.getElementById("pn58").style.display = "none";
+document.getElementById("pn48").style.display = "none";
+document.getElementById("pn38").style.display = "none";
+document.getElementById("pn28").style.display = "none";
+document.getElementById("pn18").style.display = "none";
+document.getElementById("pn08").style.display = "none";
+i--;
+}
+if(p<i){
+document.getElementById("prn8").style.display = "none";
+document.getElementById("pn97").style.display = "none";
+document.getElementById("pn87").style.display = "none";
+document.getElementById("pn77").style.display = "none";
+document.getElementById("pn67").style.display = "none";
+document.getElementById("pn57").style.display = "none";
+document.getElementById("pn47").style.display = "none";
+document.getElementById("pn37").style.display = "none";
+document.getElementById("pn27").style.display = "none";
+document.getElementById("pn17").style.display = "none";
+document.getElementById("pn07").style.display = "none";
+i--;
+}
+if(p<i){
+document.getElementById("prn7").style.display = "none";
+document.getElementById("pn96").style.display = "none";
+document.getElementById("pn86").style.display = "none";
+document.getElementById("pn76").style.display = "none";
+document.getElementById("pn66").style.display = "none";
+document.getElementById("pn56").style.display = "none";
+document.getElementById("pn46").style.display = "none";
+document.getElementById("pn36").style.display = "none";
+document.getElementById("pn26").style.display = "none";
+document.getElementById("pn16").style.display = "none";
+document.getElementById("pn06").style.display = "none";
+i--;
+}
+if(p<i){
+document.getElementById("prn6").style.display = "none";
+document.getElementById("pn95").style.display = "none";
+document.getElementById("pn85").style.display = "none";
+document.getElementById("pn75").style.display = "none";
+document.getElementById("pn65").style.display = "none";
+document.getElementById("pn55").style.display = "none";
+document.getElementById("pn45").style.display = "none";
+document.getElementById("pn35").style.display = "none";
+document.getElementById("pn25").style.display = "none";
+document.getElementById("pn15").style.display = "none";
+document.getElementById("pn05").style.display = "none";
+i--;
+}
+if(p<i){
+document.getElementById("prn5").style.display = "none";
+document.getElementById("pn94").style.display = "none";
+document.getElementById("pn84").style.display = "none";
+document.getElementById("pn74").style.display = "none";
+document.getElementById("pn64").style.display = "none";
+document.getElementById("pn54").style.display = "none";
+document.getElementById("pn44").style.display = "none";
+document.getElementById("pn34").style.display = "none";
+document.getElementById("pn24").style.display = "none";
+document.getElementById("pn14").style.display = "none";
+document.getElementById("pn04").style.display = "none";
+i--;
+}
+if(p<i){
+document.getElementById("prn4").style.display = "none";
+document.getElementById("pn93").style.display = "none";
+document.getElementById("pn83").style.display = "none";
+document.getElementById("pn73").style.display = "none";
+document.getElementById("pn63").style.display = "none";
+document.getElementById("pn53").style.display = "none";
+document.getElementById("pn43").style.display = "none";
+document.getElementById("pn33").style.display = "none";
+document.getElementById("pn23").style.display = "none";
+document.getElementById("pn13").style.display = "none";
+document.getElementById("pn03").style.display = "none";
+i--;
+}
+if(p<i){
+document.getElementById("prn3").style.display = "none";
+document.getElementById("pn92").style.display = "none";
+document.getElementById("pn82").style.display = "none";
+document.getElementById("pn72").style.display = "none";
+document.getElementById("pn62").style.display = "none";
+document.getElementById("pn52").style.display = "none";
+document.getElementById("pn42").style.display = "none";
+document.getElementById("pn32").style.display = "none";
+document.getElementById("pn22").style.display = "none";
+document.getElementById("pn12").style.display = "none";
+document.getElementById("pn02").style.display = "none";
+i--;
+}
+if(p<i){
+document.getElementById("prn2").style.display = "none";
+document.getElementById("pn91").style.display = "none";
+document.getElementById("pn81").style.display = "none";
+document.getElementById("pn71").style.display = "none";
+document.getElementById("pn61").style.display = "none";
+document.getElementById("pn51").style.display = "none";
+document.getElementById("pn41").style.display = "none";
+document.getElementById("pn31").style.display = "none";
+document.getElementById("pn21").style.display = "none";
+document.getElementById("pn11").style.display = "none";
+document.getElementById("pn01").style.display = "none";
+i--;
+}
+if(p<i){
+document.getElementById("prn1").style.display = "none";
+document.getElementById("pn90").style.display = "none";
+document.getElementById("pn80").style.display = "none";
+document.getElementById("pn70").style.display = "none";
+document.getElementById("pn60").style.display = "none";
+document.getElementById("pn50").style.display = "none";
+document.getElementById("pn40").style.display = "none";
+document.getElementById("pn30").style.display = "none";
+document.getElementById("pn20").style.display = "none";
+document.getElementById("pn10").style.display = "none";
+document.getElementById("pn00").style.display = "none";
+i--;
+}
+}
+
+function MyAvail2(){
+var k=document.getElementById("resources");
+var p=k.options[k.selectedIndex].value;
+document.getElementById("pavailable").style.display = "inline";
+document.getElementById("pra1").style.display = "inline";
+document.getElementById("pra2").style.display = "inline";
+document.getElementById("pra3").style.display = "inline";
+document.getElementById("pra4").style.display = "inline";
+document.getElementById("pra5").style.display = "inline";
+document.getElementById("pra6").style.display = "inline";
+document.getElementById("pra7").style.display = "inline";
+document.getElementById("pra8").style.display = "inline";
+document.getElementById("pra9").style.display = "inline";
+document.getElementById("pra10").style.display = "inline";
+document.getElementById("pav1").style.display = "inline";
+document.getElementById("pav2").style.display = "inline";
+document.getElementById("pav3").style.display = "inline";
+document.getElementById("pav4").style.display = "inline";
+document.getElementById("pav5").style.display = "inline";
+document.getElementById("pav6").style.display = "inline";
+document.getElementById("pav7").style.display = "inline";
+document.getElementById("pav8").style.display = "inline";
+document.getElementById("pav9").style.display = "inline";
+document.getElementById("pav0").style.display = "inline";
+
+var i=10;
+if(p<i){
+document.getElementById("pra10").style.display = "none";
+document.getElementById("pav9").style.display = "none";
+i--;
+}
+if(p<i){
+document.getElementById("pra9").style.display = "none";
+document.getElementById("pav8").style.display = "none";
+i--;
+}
+if(p<i){
+document.getElementById("pra8").style.display = "none";
+document.getElementById("pav7").style.display = "none";
+i--;
+}
+if(p<i){
+document.getElementById("pra7").style.display = "none";
+document.getElementById("pav6").style.display = "none";
+i--;
+}
+if(p<i){
+document.getElementById("pra6").style.display = "none";
+document.getElementById("pav5").style.display = "none";
+i--;
+}
+if(p<i){
+document.getElementById("pra5").style.display = "none";
+document.getElementById("pav4").style.display = "none";
+i--;
+}
+if(p<i){
+document.getElementById("pra4").style.display = "none";
+document.getElementById("pav3").style.display = "none";
+i--;
+}
+if(p<i){
+document.getElementById("pra3").style.display = "none";
+document.getElementById("pav2").style.display = "none";
+i--;
+}
+if(p<i){
+document.getElementById("pra2").style.display = "none";
+document.getElementById("pav1").style.display = "none";
+i--;
+}
+if(p<i){
+document.getElementById("pra1").style.display = "none";
+document.getElementById("pav0").style.display = "none";
+i--;
+}
+}
+
+function Create2DArray(rows) {
+  var arr = [];
+  for (var i=0;i<rows;i++) {
+     arr[i] = [];
+  }
+  return arr;
+}
+
+function TakeInput(max,avail,allocate){
+allocate[0][0]=document.getElementById("a00").value;
+allocate[0][1]=document.getElementById("a01").value;
+allocate[0][2]=document.getElementById("a02").value;
+allocate[0][3]=document.getElementById("a03").value;
+allocate[0][4]=document.getElementById("a04").value;
+allocate[0][5]=document.getElementById("a05").value;
+allocate[0][6]=document.getElementById("a06").value;
+allocate[0][7]=document.getElementById("a07").value;
+allocate[0][8]=document.getElementById("a08").value;
+allocate[0][9]=document.getElementById("a09").value;
+allocate[1][0]=document.getElementById("a10").value;
+allocate[1][1]=document.getElementById("a11").value;
+allocate[1][2]=document.getElementById("a12").value;
+allocate[1][3]=document.getElementById("a13").value;
+allocate[1][4]=document.getElementById("a14").value;
+allocate[1][5]=document.getElementById("a15").value;
+allocate[1][6]=document.getElementById("a16").value;
+allocate[1][7]=document.getElementById("a17").value;
+allocate[1][8]=document.getElementById("a18").value;
+allocate[1][9]=document.getElementById("a19").value;
+allocate[2][0]=document.getElementById("a20").value;
+allocate[2][1]=document.getElementById("a21").value;
+allocate[2][2]=document.getElementById("a22").value;
+allocate[2][3]=document.getElementById("a23").value;
+allocate[2][4]=document.getElementById("a24").value;
+allocate[2][5]=document.getElementById("a25").value;
+allocate[2][6]=document.getElementById("a26").value;
+allocate[2][7]=document.getElementById("a27").value;
+allocate[2][8]=document.getElementById("a28").value;
+allocate[2][9]=document.getElementById("a29").value;
+allocate[3][0]=document.getElementById("a30").value;
+allocate[3][1]=document.getElementById("a31").value;
+allocate[3][2]=document.getElementById("a32").value;
+allocate[3][3]=document.getElementById("a33").value;
+allocate[3][4]=document.getElementById("a34").value;
+allocate[3][5]=document.getElementById("a35").value;
+allocate[3][6]=document.getElementById("a36").value;
+allocate[3][7]=document.getElementById("a37").value;
+allocate[3][8]=document.getElementById("a38").value;
+allocate[3][9]=document.getElementById("a39").value;
+allocate[4][0]=document.getElementById("a40").value;
+allocate[4][1]=document.getElementById("a41").value;
+allocate[4][2]=document.getElementById("a42").value;
+allocate[4][3]=document.getElementById("a43").value;
+allocate[4][4]=document.getElementById("a44").value;
+allocate[4][5]=document.getElementById("a45").value;
+allocate[4][6]=document.getElementById("a46").value;
+allocate[4][7]=document.getElementById("a47").value;
+allocate[4][8]=document.getElementById("a48").value;
+allocate[4][9]=document.getElementById("a49").value;
+allocate[5][0]=document.getElementById("a50").value;
+allocate[5][1]=document.getElementById("a51").value;
+allocate[5][2]=document.getElementById("a52").value;
+allocate[5][3]=document.getElementById("a53").value;
+allocate[5][4]=document.getElementById("a54").value;
+allocate[5][5]=document.getElementById("a55").value;
+allocate[5][6]=document.getElementById("a56").value;
+allocate[5][7]=document.getElementById("a57").value;
+allocate[5][8]=document.getElementById("a58").value;
+allocate[5][9]=document.getElementById("a59").value;
+allocate[6][0]=document.getElementById("a60").value;
+allocate[6][1]=document.getElementById("a61").value;
+allocate[6][2]=document.getElementById("a62").value;
+allocate[6][3]=document.getElementById("a63").value;
+allocate[6][4]=document.getElementById("a64").value;
+allocate[6][5]=document.getElementById("a65").value;
+allocate[6][6]=document.getElementById("a66").value;
+allocate[6][7]=document.getElementById("a67").value;
+allocate[6][8]=document.getElementById("a68").value;
+allocate[6][9]=document.getElementById("a69").value;
+allocate[7][0]=document.getElementById("a70").value;
+allocate[7][1]=document.getElementById("a71").value;
+allocate[7][2]=document.getElementById("a72").value;
+allocate[7][3]=document.getElementById("a73").value;
+allocate[7][4]=document.getElementById("a74").value;
+allocate[7][5]=document.getElementById("a75").value;
+allocate[7][6]=document.getElementById("a76").value;
+allocate[7][7]=document.getElementById("a77").value;
+allocate[7][8]=document.getElementById("a78").value;
+allocate[7][9]=document.getElementById("a79").value;
+allocate[8][0]=document.getElementById("a80").value;
+allocate[8][1]=document.getElementById("a81").value;
+allocate[8][2]=document.getElementById("a82").value;
+allocate[8][3]=document.getElementById("a83").value;
+allocate[8][4]=document.getElementById("a84").value;
+allocate[8][5]=document.getElementById("a85").value;
+allocate[8][6]=document.getElementById("a86").value;
+allocate[8][7]=document.getElementById("a87").value;
+allocate[8][8]=document.getElementById("a88").value;
+allocate[8][9]=document.getElementById("a89").value;
+allocate[9][0]=document.getElementById("a90").value;
+allocate[9][1]=document.getElementById("a91").value;
+allocate[9][2]=document.getElementById("a92").value;
+allocate[9][3]=document.getElementById("a93").value;
+allocate[9][4]=document.getElementById("a94").value;
+allocate[9][5]=document.getElementById("a95").value;
+allocate[9][6]=document.getElementById("a96").value;
+allocate[9][7]=document.getElementById("a97").value;
+allocate[9][8]=document.getElementById("a98").value;
+allocate[9][9]=document.getElementById("a99").value;
+
+max[0][0]=document.getElementById("m00").value;
+max[0][1]=document.getElementById("m01").value;
+max[0][2]=document.getElementById("m02").value;
+max[0][3]=document.getElementById("m03").value;
+max[0][4]=document.getElementById("m04").value;
+max[0][5]=document.getElementById("m05").value;
+max[0][6]=document.getElementById("m06").value;
+max[0][7]=document.getElementById("m07").value;
+max[0][8]=document.getElementById("m08").value;
+max[0][9]=document.getElementById("m09").value;
+max[1][0]=document.getElementById("m10").value;
+max[1][1]=document.getElementById("m11").value;
+max[1][2]=document.getElementById("m12").value;
+max[1][3]=document.getElementById("m13").value;
+max[1][4]=document.getElementById("m14").value;
+max[1][5]=document.getElementById("m15").value;
+max[1][6]=document.getElementById("m16").value;
+max[1][7]=document.getElementById("m17").value;
+max[1][8]=document.getElementById("m18").value;
+max[1][9]=document.getElementById("m19").value;
+max[2][0]=document.getElementById("m20").value;
+max[2][1]=document.getElementById("m21").value;
+max[2][2]=document.getElementById("m22").value;
+max[2][3]=document.getElementById("m23").value;
+max[2][4]=document.getElementById("m24").value;
+max[2][5]=document.getElementById("m25").value;
+max[2][6]=document.getElementById("m26").value;
+max[2][7]=document.getElementById("m27").value;
+max[2][8]=document.getElementById("m28").value;
+max[2][9]=document.getElementById("m29").value;
+max[3][0]=document.getElementById("m30").value;
+max[3][1]=document.getElementById("m31").value;
+max[3][2]=document.getElementById("m32").value;
+max[3][3]=document.getElementById("m33").value;
+max[3][4]=document.getElementById("m34").value;
+max[3][5]=document.getElementById("m35").value;
+max[3][6]=document.getElementById("m36").value;
+max[3][7]=document.getElementById("m37").value;
+max[3][8]=document.getElementById("m38").value;
+max[3][9]=document.getElementById("m39").value;
+max[4][0]=document.getElementById("m40").value;
+max[4][1]=document.getElementById("m41").value;
+max[4][2]=document.getElementById("m42").value;
+max[4][3]=document.getElementById("m43").value;
+max[4][4]=document.getElementById("m44").value;
+max[4][5]=document.getElementById("m45").value;
+max[4][6]=document.getElementById("m46").value;
+max[4][7]=document.getElementById("m47").value;
+max[4][8]=document.getElementById("m48").value;
+max[4][9]=document.getElementById("m49").value;
+max[5][0]=document.getElementById("m50").value;
+max[5][1]=document.getElementById("m51").value;
+max[5][2]=document.getElementById("m52").value;
+max[5][3]=document.getElementById("m53").value;
+max[5][4]=document.getElementById("m54").value;
+max[5][5]=document.getElementById("m55").value;
+max[5][6]=document.getElementById("m56").value;
+max[5][7]=document.getElementById("m57").value;
+max[5][8]=document.getElementById("m58").value;
+max[5][9]=document.getElementById("m59").value;
+max[6][0]=document.getElementById("m60").value;
+max[6][1]=document.getElementById("m61").value;
+max[6][2]=document.getElementById("m62").value;
+max[6][3]=document.getElementById("m63").value;
+max[6][4]=document.getElementById("m64").value;
+max[6][5]=document.getElementById("m65").value;
+max[6][6]=document.getElementById("m66").value;
+max[6][7]=document.getElementById("m67").value;
+max[6][8]=document.getElementById("m68").value;
+max[6][9]=document.getElementById("m69").value;
+max[7][0]=document.getElementById("m70").value;
+max[7][1]=document.getElementById("m71").value;
+max[7][2]=document.getElementById("m72").value;
+max[7][3]=document.getElementById("m73").value;
+max[7][4]=document.getElementById("m74").value;
+max[7][5]=document.getElementById("m75").value;
+max[7][6]=document.getElementById("m76").value;
+max[7][7]=document.getElementById("m77").value;
+max[7][8]=document.getElementById("m78").value;
+max[7][9]=document.getElementById("m79").value;
+max[8][0]=document.getElementById("m80").value;
+max[8][1]=document.getElementById("m81").value;
+max[8][2]=document.getElementById("m82").value;
+max[8][3]=document.getElementById("m83").value;
+max[8][4]=document.getElementById("m84").value;
+max[8][5]=document.getElementById("m85").value;
+max[8][6]=document.getElementById("m86").value;
+max[8][7]=document.getElementById("m87").value;
+max[8][8]=document.getElementById("m88").value;
+max[8][9]=document.getElementById("m89").value;
+max[9][0]=document.getElementById("m90").value;
+max[9][1]=document.getElementById("m91").value;
+max[9][2]=document.getElementById("m92").value;
+max[9][3]=document.getElementById("m93").value;
+max[9][4]=document.getElementById("m94").value;
+max[9][5]=document.getElementById("m95").value;
+max[9][6]=document.getElementById("m96").value;
+max[9][7]=document.getElementById("m97").value;
+max[9][8]=document.getElementById("m98").value;
+max[9][9]=document.getElementById("m99").value;
+
+avail[0][0]=document.getElementById("av0").value;
+avail[0][1]=document.getElementById("av1").value;
+avail[0][2]=document.getElementById("av2").value;
+avail[0][3]=document.getElementById("av3").value;
+avail[0][4]=document.getElementById("av4").value;
+avail[0][5]=document.getElementById("av5").value;
+avail[0][6]=document.getElementById("av6").value;
+avail[0][7]=document.getElementById("av7").value;
+avail[0][8]=document.getElementById("av8").value;
+avail[0][9]=document.getElementById("av9").value;
+}
+
+function SetInput(max,avail,allocate){
+document.getElementById("pa00").innerHTML = allocate[0][0];
+document.getElementById("pa01").innerHTML = allocate[0][1];
+document.getElementById("pa02").innerHTML = allocate[0][2];
+document.getElementById("pa03").innerHTML = allocate[0][3];
+document.getElementById("pa04").innerHTML = allocate[0][4];
+document.getElementById("pa05").innerHTML = allocate[0][5];
+document.getElementById("pa06").innerHTML = allocate[0][6];
+document.getElementById("pa07").innerHTML = allocate[0][7];
+document.getElementById("pa08").innerHTML = allocate[0][8];
+document.getElementById("pa09").innerHTML = allocate[0][9];
+document.getElementById("pa10").innerHTML = allocate[1][0];
+document.getElementById("pa11").innerHTML = allocate[1][1];
+document.getElementById("pa12").innerHTML = allocate[1][2];
+document.getElementById("pa13").innerHTML = allocate[1][3];
+document.getElementById("pa14").innerHTML = allocate[1][4];
+document.getElementById("pa15").innerHTML = allocate[1][5];
+document.getElementById("pa16").innerHTML = allocate[1][6];
+document.getElementById("pa17").innerHTML = allocate[1][7];
+document.getElementById("pa18").innerHTML = allocate[1][8];
+document.getElementById("pa19").innerHTML = allocate[1][9];
+document.getElementById("pa20").innerHTML = allocate[2][0];
+document.getElementById("pa21").innerHTML = allocate[2][1];
+document.getElementById("pa22").innerHTML = allocate[2][2];
+document.getElementById("pa23").innerHTML = allocate[2][3];
+document.getElementById("pa24").innerHTML = allocate[2][4];
+document.getElementById("pa25").innerHTML = allocate[2][5];
+document.getElementById("pa26").innerHTML = allocate[2][6];
+document.getElementById("pa27").innerHTML = allocate[2][7];
+document.getElementById("pa28").innerHTML = allocate[2][8];
+document.getElementById("pa29").innerHTML = allocate[2][9];
+document.getElementById("pa30").innerHTML = allocate[3][0];
+document.getElementById("pa31").innerHTML = allocate[3][1];
+document.getElementById("pa32").innerHTML = allocate[3][2];
+document.getElementById("pa33").innerHTML = allocate[3][3];
+document.getElementById("pa34").innerHTML = allocate[3][4];
+document.getElementById("pa35").innerHTML = allocate[3][5];
+document.getElementById("pa36").innerHTML = allocate[3][6];
+document.getElementById("pa37").innerHTML = allocate[3][7];
+document.getElementById("pa38").innerHTML = allocate[3][8];
+document.getElementById("pa39").innerHTML = allocate[3][9];
+document.getElementById("pa40").innerHTML = allocate[4][0];
+document.getElementById("pa41").innerHTML = allocate[4][1];
+document.getElementById("pa42").innerHTML = allocate[4][2];
+document.getElementById("pa43").innerHTML = allocate[4][3];
+document.getElementById("pa44").innerHTML = allocate[4][4];
+document.getElementById("pa45").innerHTML = allocate[4][5];
+document.getElementById("pa46").innerHTML = allocate[4][6];
+document.getElementById("pa47").innerHTML = allocate[4][7];
+document.getElementById("pa48").innerHTML = allocate[4][8];
+document.getElementById("pa49").innerHTML = allocate[4][9];
+document.getElementById("pa50").innerHTML = allocate[5][0];
+document.getElementById("pa51").innerHTML = allocate[5][1];
+document.getElementById("pa52").innerHTML = allocate[5][2];
+document.getElementById("pa53").innerHTML = allocate[5][3];
+document.getElementById("pa54").innerHTML = allocate[5][4];
+document.getElementById("pa55").innerHTML = allocate[5][5];
+document.getElementById("pa56").innerHTML = allocate[5][6];
+document.getElementById("pa57").innerHTML = allocate[5][7];
+document.getElementById("pa58").innerHTML = allocate[5][8];
+document.getElementById("pa59").innerHTML = allocate[5][9];
+document.getElementById("pa60").innerHTML = allocate[6][0];
+document.getElementById("pa61").innerHTML = allocate[6][1];
+document.getElementById("pa62").innerHTML = allocate[6][2];
+document.getElementById("pa63").innerHTML = allocate[6][3];
+document.getElementById("pa64").innerHTML = allocate[6][4];
+document.getElementById("pa65").innerHTML = allocate[6][5];
+document.getElementById("pa66").innerHTML = allocate[6][6];
+document.getElementById("pa67").innerHTML = allocate[6][7];
+document.getElementById("pa68").innerHTML = allocate[6][8];
+document.getElementById("pa69").innerHTML = allocate[6][9];
+document.getElementById("pa70").innerHTML = allocate[7][0];
+document.getElementById("pa71").innerHTML = allocate[7][1];
+document.getElementById("pa72").innerHTML = allocate[7][2];
+document.getElementById("pa73").innerHTML = allocate[7][3];
+document.getElementById("pa74").innerHTML = allocate[7][4];
+document.getElementById("pa75").innerHTML = allocate[7][5];
+document.getElementById("pa76").innerHTML = allocate[7][6];
+document.getElementById("pa77").innerHTML = allocate[7][7];
+document.getElementById("pa78").innerHTML = allocate[7][8];
+document.getElementById("pa79").innerHTML = allocate[7][9];
+document.getElementById("pa80").innerHTML = allocate[8][0];
+document.getElementById("pa81").innerHTML = allocate[8][1];
+document.getElementById("pa82").innerHTML = allocate[8][2];
+document.getElementById("pa83").innerHTML = allocate[8][3];
+document.getElementById("pa84").innerHTML = allocate[8][4];
+document.getElementById("pa85").innerHTML = allocate[8][5];
+document.getElementById("pa86").innerHTML = allocate[8][6];
+document.getElementById("pa87").innerHTML = allocate[8][7];
+document.getElementById("pa88").innerHTML = allocate[8][8];
+document.getElementById("pa89").innerHTML = allocate[8][9];
+document.getElementById("pa90").innerHTML = allocate[9][0];
+document.getElementById("pa91").innerHTML = allocate[9][1];
+document.getElementById("pa92").innerHTML = allocate[9][2];
+document.getElementById("pa93").innerHTML = allocate[9][3];
+document.getElementById("pa94").innerHTML = allocate[9][4];
+document.getElementById("pa95").innerHTML = allocate[9][5];
+document.getElementById("pa96").innerHTML = allocate[9][6];
+document.getElementById("pa97").innerHTML = allocate[9][7];
+document.getElementById("pa98").innerHTML = allocate[9][8];
+document.getElementById("pa99").innerHTML = allocate[9][9];
+
+document.getElementById("pm00").innerHTML = max[0][0];
+document.getElementById("pm01").innerHTML = max[0][1];
+document.getElementById("pm02").innerHTML = max[0][2];
+document.getElementById("pm03").innerHTML = max[0][3];
+document.getElementById("pm04").innerHTML = max[0][4];
+document.getElementById("pm05").innerHTML = max[0][5];
+document.getElementById("pm06").innerHTML = max[0][6];
+document.getElementById("pm07").innerHTML = max[0][7];
+document.getElementById("pm08").innerHTML = max[0][8];
+document.getElementById("pm09").innerHTML = max[0][9];
+document.getElementById("pm10").innerHTML = max[1][0];
+document.getElementById("pm11").innerHTML = max[1][1];
+document.getElementById("pm12").innerHTML = max[1][2];
+document.getElementById("pm13").innerHTML = max[1][3];
+document.getElementById("pm14").innerHTML = max[1][4];
+document.getElementById("pm15").innerHTML = max[1][5];
+document.getElementById("pm16").innerHTML = max[1][6];
+document.getElementById("pm17").innerHTML = max[1][7];
+document.getElementById("pm18").innerHTML = max[1][8];
+document.getElementById("pm19").innerHTML = max[1][9];
+document.getElementById("pm20").innerHTML = max[2][0];
+document.getElementById("pm21").innerHTML = max[2][1];
+document.getElementById("pm22").innerHTML = max[2][2];
+document.getElementById("pm23").innerHTML = max[2][3];
+document.getElementById("pm24").innerHTML = max[2][4];
+document.getElementById("pm25").innerHTML = max[2][5];
+document.getElementById("pm26").innerHTML = max[2][6];
+document.getElementById("pm27").innerHTML = max[2][7];
+document.getElementById("pm28").innerHTML = max[2][8];
+document.getElementById("pm29").innerHTML = max[2][9];
+document.getElementById("pm30").innerHTML = max[3][0];
+document.getElementById("pm31").innerHTML = max[3][1];
+document.getElementById("pm32").innerHTML = max[3][2];
+document.getElementById("pm33").innerHTML = max[3][3];
+document.getElementById("pm34").innerHTML = max[3][4];
+document.getElementById("pm35").innerHTML = max[3][5];
+document.getElementById("pm36").innerHTML = max[3][6];
+document.getElementById("pm37").innerHTML = max[3][7];
+document.getElementById("pm38").innerHTML = max[3][8];
+document.getElementById("pm39").innerHTML = max[3][9];
+document.getElementById("pm40").innerHTML = max[4][0];
+document.getElementById("pm41").innerHTML = max[4][1];
+document.getElementById("pm42").innerHTML = max[4][2];
+document.getElementById("pm43").innerHTML = max[4][3];
+document.getElementById("pm44").innerHTML = max[4][4];
+document.getElementById("pm45").innerHTML = max[4][5];
+document.getElementById("pm46").innerHTML = max[4][6];
+document.getElementById("pm47").innerHTML = max[4][7];
+document.getElementById("pm48").innerHTML = max[4][8];
+document.getElementById("pm49").innerHTML = max[4][9];
+document.getElementById("pm50").innerHTML = max[5][0];
+document.getElementById("pm51").innerHTML = max[5][1];
+document.getElementById("pm52").innerHTML = max[5][2];
+document.getElementById("pm53").innerHTML = max[5][3];
+document.getElementById("pm54").innerHTML = max[5][4];
+document.getElementById("pm55").innerHTML = max[5][5];
+document.getElementById("pm56").innerHTML = max[5][6];
+document.getElementById("pm57").innerHTML = max[5][7];
+document.getElementById("pm58").innerHTML = max[5][8];
+document.getElementById("pm59").innerHTML = max[5][9];
+document.getElementById("pm60").innerHTML = max[6][0];
+document.getElementById("pm61").innerHTML = max[6][1];
+document.getElementById("pm62").innerHTML = max[6][2];
+document.getElementById("pm63").innerHTML = max[6][3];
+document.getElementById("pm64").innerHTML = max[6][4];
+document.getElementById("pm65").innerHTML = max[6][5];
+document.getElementById("pm66").innerHTML = max[6][6];
+document.getElementById("pm67").innerHTML = max[6][7];
+document.getElementById("pm68").innerHTML = max[6][8];
+document.getElementById("pm69").innerHTML = max[6][9];
+document.getElementById("pm70").innerHTML = max[7][0];
+document.getElementById("pm71").innerHTML = max[7][1];
+document.getElementById("pm72").innerHTML = max[7][2];
+document.getElementById("pm73").innerHTML = max[7][3];
+document.getElementById("pm74").innerHTML = max[7][4];
+document.getElementById("pm75").innerHTML = max[7][5];
+document.getElementById("pm76").innerHTML = max[7][6];
+document.getElementById("pm77").innerHTML = max[7][7];
+document.getElementById("pm78").innerHTML = max[7][8];
+document.getElementById("pm79").innerHTML = max[7][9];
+document.getElementById("pm80").innerHTML = max[8][0];
+document.getElementById("pm81").innerHTML = max[8][1];
+document.getElementById("pm82").innerHTML = max[8][2];
+document.getElementById("pm83").innerHTML = max[8][3];
+document.getElementById("pm84").innerHTML = max[8][4];
+document.getElementById("pm85").innerHTML = max[8][5];
+document.getElementById("pm86").innerHTML = max[8][6];
+document.getElementById("pm87").innerHTML = max[8][7];
+document.getElementById("pm88").innerHTML = max[8][8];
+document.getElementById("pm89").innerHTML = max[8][9];
+document.getElementById("pm90").innerHTML = max[9][0];
+document.getElementById("pm91").innerHTML = max[9][1];
+document.getElementById("pm92").innerHTML = max[9][2];
+document.getElementById("pm93").innerHTML = max[9][3];
+document.getElementById("pm94").innerHTML = max[9][4];
+document.getElementById("pm95").innerHTML = max[9][5];
+document.getElementById("pm96").innerHTML = max[9][6];
+document.getElementById("pm97").innerHTML = max[9][7];
+document.getElementById("pm98").innerHTML = max[9][8];
+document.getElementById("pm99").innerHTML = max[9][9];
+
+document.getElementById("pn00").innerHTML = " " + max[0][0] + " - " + allocate[0][0]  + " = " + (max[0][0] - allocate[0][0]) + " ";
+document.getElementById("pn01").innerHTML = " " + max[0][1] + " - " + allocate[0][1]  + " = " + (max[0][1] - allocate[0][1]) + " ";
+document.getElementById("pn02").innerHTML = " " + max[0][2] + " - " + allocate[0][2]  + " = " + (max[0][2] - allocate[0][2]) + " ";
+document.getElementById("pn03").innerHTML = " " + max[0][3] + " - " + allocate[0][3]  + " = " + (max[0][3] - allocate[0][3]) + " ";
+document.getElementById("pn04").innerHTML = " " + max[0][4] + " - " + allocate[0][4]  + " = " + (max[0][4] - allocate[0][4]) + " ";
+document.getElementById("pn05").innerHTML = " " + max[0][5] + " - " + allocate[0][5]  + " = " + (max[0][5] - allocate[0][5]) + " ";
+document.getElementById("pn06").innerHTML = " " + max[0][6] + " - " + allocate[0][6]  + " = " + (max[0][6] - allocate[0][6]) + " ";
+document.getElementById("pn07").innerHTML = " " + max[0][7] + " - " + allocate[0][7]  + " = " + (max[0][7] - allocate[0][7]) + " ";
+document.getElementById("pn08").innerHTML = " " + max[0][8] + " - " + allocate[0][8]  + " = " + (max[0][8] - allocate[0][8]) + " ";
+document.getElementById("pn09").innerHTML = " " + max[0][9] + " - " + allocate[0][9]  + " = " + (max[0][9] - allocate[0][9]) + " ";
+document.getElementById("pn10").innerHTML = " " + max[1][0] + " - " + allocate[1][0]  + " = " + (max[1][0] - allocate[1][0]) + " ";
+document.getElementById("pn11").innerHTML = " " + max[1][1] + " - " + allocate[1][1]  + " = " + (max[1][1] - allocate[1][1]) + " ";
+document.getElementById("pn12").innerHTML = " " + max[1][2] + " - " + allocate[1][2]  + " = " + (max[1][2] - allocate[1][2]) + " ";
+document.getElementById("pn13").innerHTML = " " + max[1][3] + " - " + allocate[1][3]  + " = " + (max[1][3] - allocate[1][3]) + " ";
+document.getElementById("pn14").innerHTML = " " + max[1][4] + " - " + allocate[1][4]  + " = " + (max[1][4] - allocate[1][4]) + " ";
+document.getElementById("pn15").innerHTML = " " + max[1][5] + " - " + allocate[1][5]  + " = " + (max[1][5] - allocate[1][5]) + " ";
+document.getElementById("pn16").innerHTML = " " + max[1][6] + " - " + allocate[1][6]  + " = " + (max[1][6] - allocate[1][6]) + " ";
+document.getElementById("pn17").innerHTML = " " + max[1][7] + " - " + allocate[1][7]  + " = " + (max[1][7] - allocate[1][7]) + " ";
+document.getElementById("pn18").innerHTML = " " + max[1][8] + " - " + allocate[1][8]  + " = " + (max[1][8] - allocate[1][8]) + " ";
+document.getElementById("pn19").innerHTML = " " + max[1][9] + " - " + allocate[1][9]  + " = " + (max[1][9] - allocate[1][9]) + " ";
+document.getElementById("pn20").innerHTML = " " + max[2][0] + " - " + allocate[2][0]  + " = " + (max[2][0] - allocate[2][0]) + " ";
+document.getElementById("pn21").innerHTML = " " + max[2][1] + " - " + allocate[2][1]  + " = " + (max[2][1] - allocate[2][1]) + " ";
+document.getElementById("pn22").innerHTML = " " + max[2][2] + " - " + allocate[2][2]  + " = " + (max[2][2] - allocate[2][2]) + " ";
+document.getElementById("pn23").innerHTML = " " + max[2][3] + " - " + allocate[2][3]  + " = " + (max[2][3] - allocate[2][3]) + " ";
+document.getElementById("pn24").innerHTML = " " + max[2][4] + " - " + allocate[2][4]  + " = " + (max[2][4] - allocate[2][4]) + " ";
+document.getElementById("pn25").innerHTML = " " + max[2][5] + " - " + allocate[2][5]  + " = " + (max[2][5] - allocate[2][5]) + " ";
+document.getElementById("pn26").innerHTML = " " + max[2][6] + " - " + allocate[2][6]  + " = " + (max[2][6] - allocate[2][6]) + " ";
+document.getElementById("pn27").innerHTML = " " + max[2][7] + " - " + allocate[2][7]  + " = " + (max[2][7] - allocate[2][7]) + " ";
+document.getElementById("pn28").innerHTML = " " + max[2][8] + " - " + allocate[2][8]  + " = " + (max[2][8] - allocate[2][8]) + " ";
+document.getElementById("pn29").innerHTML = " " + max[2][9] + " - " + allocate[2][9]  + " = " + (max[2][9] - allocate[2][9]) + " ";
+document.getElementById("pn30").innerHTML = " " + max[3][0] + " - " + allocate[3][0]  + " = " + (max[3][0] - allocate[3][0]) + " ";
+document.getElementById("pn31").innerHTML = " " + max[3][1] + " - " + allocate[3][1]  + " = " + (max[3][1] - allocate[3][1]) + " ";
+document.getElementById("pn32").innerHTML = " " + max[3][2] + " - " + allocate[3][2]  + " = " + (max[3][2] - allocate[3][2]) + " ";
+document.getElementById("pn33").innerHTML = " " + max[3][3] + " - " + allocate[3][3]  + " = " + (max[3][3] - allocate[3][3]) + " ";
+document.getElementById("pn34").innerHTML = " " + max[3][4] + " - " + allocate[3][4]  + " = " + (max[3][4] - allocate[3][4]) + " ";
+document.getElementById("pn35").innerHTML = " " + max[3][5] + " - " + allocate[3][5]  + " = " + (max[3][5] - allocate[3][5]) + " ";
+document.getElementById("pn36").innerHTML = " " + max[3][6] + " - " + allocate[3][6]  + " = " + (max[3][6] - allocate[3][6]) + " ";
+document.getElementById("pn37").innerHTML = " " + max[3][7] + " - " + allocate[3][7]  + " = " + (max[3][7] - allocate[3][7]) + " ";
+document.getElementById("pn38").innerHTML = " " + max[3][8] + " - " + allocate[3][8]  + " = " + (max[3][8] - allocate[3][8]) + " ";
+document.getElementById("pn39").innerHTML = " " + max[3][9] + " - " + allocate[3][9]  + " = " + (max[3][9] - allocate[3][9]) + " ";
+document.getElementById("pn40").innerHTML = " " + max[4][0] + " - " + allocate[4][0]  + " = " + (max[4][0] - allocate[4][0]) + " ";
+document.getElementById("pn41").innerHTML = " " + max[4][1] + " - " + allocate[4][1]  + " = " + (max[4][1] - allocate[4][1]) + " ";
+document.getElementById("pn42").innerHTML = " " + max[4][2] + " - " + allocate[4][2]  + " = " + (max[4][2] - allocate[4][2]) + " ";
+document.getElementById("pn43").innerHTML = " " + max[4][3] + " - " + allocate[4][3]  + " = " + (max[4][3] - allocate[4][3]) + " ";
+document.getElementById("pn44").innerHTML = " " + max[4][4] + " - " + allocate[4][4]  + " = " + (max[4][4] - allocate[4][4]) + " ";
+document.getElementById("pn45").innerHTML = " " + max[4][5] + " - " + allocate[4][5]  + " = " + (max[4][5] - allocate[4][5]) + " ";
+document.getElementById("pn46").innerHTML = " " + max[4][6] + " - " + allocate[4][6]  + " = " + (max[4][6] - allocate[4][6]) + " ";
+document.getElementById("pn47").innerHTML = " " + max[4][7] + " - " + allocate[4][7]  + " = " + (max[4][7] - allocate[4][7]) + " ";
+document.getElementById("pn48").innerHTML = " " + max[4][8] + " - " + allocate[4][8]  + " = " + (max[4][8] - allocate[4][8]) + " ";
+document.getElementById("pn49").innerHTML = " " + max[4][9] + " - " + allocate[4][9]  + " = " + (max[4][9] - allocate[4][9]) + " ";
+document.getElementById("pn50").innerHTML = " " + max[5][0] + " - " + allocate[5][0]  + " = " + (max[5][0] - allocate[5][0]) + " ";
+document.getElementById("pn51").innerHTML = " " + max[5][1] + " - " + allocate[5][1]  + " = " + (max[5][1] - allocate[5][1]) + " ";
+document.getElementById("pn52").innerHTML = " " + max[5][2] + " - " + allocate[5][2]  + " = " + (max[5][2] - allocate[5][2]) + " ";
+document.getElementById("pn53").innerHTML = " " + max[5][3] + " - " + allocate[5][3]  + " = " + (max[5][3] - allocate[5][3]) + " ";
+document.getElementById("pn54").innerHTML = " " + max[5][4] + " - " + allocate[5][4]  + " = " + (max[5][4] - allocate[5][4]) + " ";
+document.getElementById("pn55").innerHTML = " " + max[5][5] + " - " + allocate[5][5]  + " = " + (max[5][5] - allocate[5][5]) + " ";
+document.getElementById("pn56").innerHTML = " " + max[5][6] + " - " + allocate[5][6]  + " = " + (max[5][6] - allocate[5][6]) + " ";
+document.getElementById("pn57").innerHTML = " " + max[5][7] + " - " + allocate[5][7]  + " = " + (max[5][7] - allocate[5][7]) + " ";
+document.getElementById("pn58").innerHTML = " " + max[5][8] + " - " + allocate[5][8]  + " = " + (max[5][8] - allocate[5][8]) + " ";
+document.getElementById("pn59").innerHTML = " " + max[5][9] + " - " + allocate[5][9]  + " = " + (max[5][9] - allocate[5][9]) + " ";
+document.getElementById("pn60").innerHTML = " " + max[6][0] + " - " + allocate[6][0]  + " = " + (max[6][0] - allocate[6][0]) + " ";
+document.getElementById("pn61").innerHTML = " " + max[6][1] + " - " + allocate[6][1]  + " = " + (max[6][1] - allocate[6][1]) + " ";
+document.getElementById("pn62").innerHTML = " " + max[6][2] + " - " + allocate[6][2]  + " = " + (max[6][2] - allocate[6][2]) + " ";
+document.getElementById("pn63").innerHTML = " " + max[6][3] + " - " + allocate[6][3]  + " = " + (max[6][3] - allocate[6][3]) + " ";
+document.getElementById("pn64").innerHTML = " " + max[6][4] + " - " + allocate[6][4]  + " = " + (max[6][4] - allocate[6][4]) + " ";
+document.getElementById("pn65").innerHTML = " " + max[6][5] + " - " + allocate[6][5]  + " = " + (max[6][5] - allocate[6][5]) + " ";
+document.getElementById("pn66").innerHTML = " " + max[6][6] + " - " + allocate[6][6]  + " = " + (max[6][6] - allocate[6][6]) + " ";
+document.getElementById("pn67").innerHTML = " " + max[6][7] + " - " + allocate[6][7]  + " = " + (max[6][7] - allocate[6][7]) + " ";
+document.getElementById("pn68").innerHTML = " " + max[6][8] + " - " + allocate[6][8]  + " = " + (max[6][8] - allocate[6][8]) + " ";
+document.getElementById("pn69").innerHTML = " " + max[6][9] + " - " + allocate[6][9]  + " = " + (max[6][9] - allocate[6][9]) + " ";
+document.getElementById("pn70").innerHTML = " " + max[7][0] + " - " + allocate[7][0]  + " = " + (max[7][0] - allocate[7][0]) + " ";
+document.getElementById("pn71").innerHTML = " " + max[7][1] + " - " + allocate[7][1]  + " = " + (max[7][1] - allocate[7][1]) + " ";
+document.getElementById("pn72").innerHTML = " " + max[7][2] + " - " + allocate[7][2]  + " = " + (max[7][2] - allocate[7][2]) + " ";
+document.getElementById("pn73").innerHTML = " " + max[7][3] + " - " + allocate[7][3]  + " = " + (max[7][3] - allocate[7][3]) + " ";
+document.getElementById("pn74").innerHTML = " " + max[7][4] + " - " + allocate[7][4]  + " = " + (max[7][4] - allocate[7][4]) + " ";
+document.getElementById("pn75").innerHTML = " " + max[7][5] + " - " + allocate[7][5]  + " = " + (max[7][5] - allocate[7][5]) + " ";
+document.getElementById("pn76").innerHTML = " " + max[7][6] + " - " + allocate[7][6]  + " = " + (max[7][6] - allocate[7][6]) + " ";
+document.getElementById("pn77").innerHTML = " " + max[7][7] + " - " + allocate[7][7]  + " = " + (max[7][7] - allocate[7][7]) + " ";
+document.getElementById("pn78").innerHTML = " " + max[7][8] + " - " + allocate[7][8]  + " = " + (max[7][8] - allocate[7][8]) + " ";
+document.getElementById("pn79").innerHTML = " " + max[7][9] + " - " + allocate[7][9]  + " = " + (max[7][9] - allocate[7][9]) + " ";
+document.getElementById("pn80").innerHTML = " " + max[8][0] + " - " + allocate[8][0]  + " = " + (max[8][0] - allocate[8][0]) + " ";
+document.getElementById("pn81").innerHTML = " " + max[8][1] + " - " + allocate[8][1]  + " = " + (max[8][1] - allocate[8][1]) + " ";
+document.getElementById("pn82").innerHTML = " " + max[8][2] + " - " + allocate[8][2]  + " = " + (max[8][2] - allocate[8][2]) + " ";
+document.getElementById("pn83").innerHTML = " " + max[8][3] + " - " + allocate[8][3]  + " = " + (max[8][3] - allocate[8][3]) + " ";
+document.getElementById("pn84").innerHTML = " " + max[8][4] + " - " + allocate[8][4]  + " = " + (max[8][4] - allocate[8][4]) + " ";
+document.getElementById("pn85").innerHTML = " " + max[8][5] + " - " + allocate[8][5]  + " = " + (max[8][5] - allocate[8][5]) + " ";
+document.getElementById("pn86").innerHTML = " " + max[8][6] + " - " + allocate[8][6]  + " = " + (max[8][6] - allocate[8][6]) + " ";
+document.getElementById("pn87").innerHTML = " " + max[8][7] + " - " + allocate[8][7]  + " = " + (max[8][7] - allocate[8][7]) + " ";
+document.getElementById("pn88").innerHTML = " " + max[8][8] + " - " + allocate[8][8]  + " = " + (max[8][8] - allocate[8][8]) + " ";
+document.getElementById("pn89").innerHTML = " " + max[8][9] + " - " + allocate[8][9]  + " = " + (max[8][9] - allocate[8][9]) + " ";
+document.getElementById("pn90").innerHTML = " " + max[9][0] + " - " + allocate[9][0]  + " = " + (max[9][0] - allocate[9][0]) + " ";
+document.getElementById("pn91").innerHTML = " " + max[9][1] + " - " + allocate[9][1]  + " = " + (max[9][1] - allocate[9][1]) + " ";
+document.getElementById("pn92").innerHTML = " " + max[9][2] + " - " + allocate[9][2]  + " = " + (max[9][2] - allocate[9][2]) + " ";
+document.getElementById("pn93").innerHTML = " " + max[9][3] + " - " + allocate[9][3]  + " = " + (max[9][3] - allocate[9][3]) + " ";
+document.getElementById("pn94").innerHTML = " " + max[9][4] + " - " + allocate[9][4]  + " = " + (max[9][4] - allocate[9][4]) + " ";
+document.getElementById("pn95").innerHTML = " " + max[9][5] + " - " + allocate[9][5]  + " = " + (max[9][5] - allocate[9][5]) + " ";
+document.getElementById("pn96").innerHTML = " " + max[9][6] + " - " + allocate[9][6]  + " = " + (max[9][6] - allocate[9][6]) + " ";
+document.getElementById("pn97").innerHTML = " " + max[9][7] + " - " + allocate[9][7]  + " = " + (max[9][7] - allocate[9][7]) + " ";
+document.getElementById("pn98").innerHTML = " " + max[9][8] + " - " + allocate[9][8]  + " = " + (max[9][8] - allocate[9][8]) + " ";
+document.getElementById("pn99").innerHTML = " " + max[9][9] + " - " + allocate[9][9]  + " = " + (max[9][9] - allocate[9][9]) + " ";
+
+document.getElementById("pav0").innerHTML = avail[0][0];
+document.getElementById("pav1").innerHTML = avail[0][1];
+document.getElementById("pav2").innerHTML = avail[0][2];
+document.getElementById("pav3").innerHTML = avail[0][3];
+document.getElementById("pav4").innerHTML = avail[0][4];
+document.getElementById("pav5").innerHTML = avail[0][5];
+document.getElementById("pav6").innerHTML = avail[0][6];
+document.getElementById("pav7").innerHTML = avail[0][7];
+document.getElementById("pav8").innerHTML = avail[0][8];
+document.getElementById("pav9").innerHTML = avail[0][9];
+}
+
+function mainmethod(){
+MyFun2();
+var max=Create2DArray(10);
+var avail=Create2DArray(1);
+var allocate=Create2DArray(10);
+var need=Create2DArray(10);
+TakeInput(max,avail,allocate);
+SetInput(max,avail,allocate);
+var i,j;
+var k=document.getElementById("processes");
+var np=k.options[k.selectedIndex].value;
+var g=document.getElementById("resources");
+var nr=g.options[g.selectedIndex].value;
+
+/*for(i=0;i<np;i++){
+for(j=0;j<nr;j++){
+document.write(allocate[i][j]+" ");
+}
+document.write("<br>");
+}
+document.write("<br>");
+
+for(i=0;i<np;i++){
+for(j=0;j<nr;j++){
+document.write(max[i][j]+" ");
+}
+document.write("<br>");
+}
+document.write("<br>");*/
+
+for(i=0;i<np;i++){
+for(j=0;j<nr;j++){
+need[i][j]=max[i][j]-allocate[i][j];
+//document.write(need[i][j]+" ");
+}
+//document.write("<br>");
+}
+//document.write("<br>");
+
+
+/*for(j=0;j<nr;j++){
+document.write(avail[0][j]+" ");
+}
+
+document.write("<br>");
+document.write("<br>");*/
+
+var done=[];
+for(i=0;i<np;i++){
+done.push(false);
+}
+j=0;
+while(j<np){
+var allocated=false;
+loop1:
+for(i=0;i<np;i++){
+		if((!done[i])){
+		var m;
+		for(m=0;m<nr;m++){
+		if(avail[0][m]<need[i][m]){
+		continue loop1;
+		}
+		}
+			for(k=0;k<nr;k++){
+			avail[0][k]=parseInt((avail[0][k]))+parseInt((allocate[i][k]));
+			}			
+		//document.write("Allocated process : "+(i+1)+"<br>");
+		allocated=true;
+		done[i]=true;
+		j++;
+		
+		if(j == 1)
+		{	
+			document.getElementById("res0").innerHTML = i+1;
+		}	
+		else if(j == 2)
+		{
+			document.getElementById("res1").innerHTML = i+1;
+		}
+		else if(j == 3)
+		{
+			document.getElementById("res2").innerHTML = i+1;
+		}
+		else if(j == 4)
+		{
+			document.getElementById("res3").innerHTML = i+1;
+		}
+		else if(j == 5)
+		{
+			document.getElementById("res4").innerHTML = i+1;
+		}
+		else if(j == 6)
+		{
+			document.getElementById("res5").innerHTML = i+1;
+		}
+		else if(j == 7)
+		{
+			document.getElementById("res6").innerHTML = i+1;
+		}
+		else if(j == 8)
+		{
+			document.getElementById("res7").innerHTML = i+1;
+		}
+		else if(j == 9)
+		{
+			document.getElementById("res8").innerHTML = i+1;
+		}
+		else if(j == 10)
+		{
+			document.getElementById("res9").innerHTML = i+1;
+		}
+			
+			 }
+			 }
+if(!allocated)break; 
+}
+
+if(j==np)  //if all processes are allocated
+	document.getElementById("Res0").innerHTML = " Safely allocated ! &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Deadlock Prevented !";
+else
+	document.getElementById("Res0").innerHTML = " All proceess cant be allocated safely ! &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Processes Entered Into Deadlock State !";
+	
+if(j == 9)
+{
+	document.getElementById("res9").style.display = "none";
+}
+else if(j == 8)
+{
+	document.getElementById("res8").style.display = "none";
+	document.getElementById("res9").style.display = "none";
+}
+else if(j == 7)
+{
+	document.getElementById("res7").style.display = "none";
+	document.getElementById("res8").style.display = "none";
+	document.getElementById("res9").style.display = "none";
+}
+else if(j == 6)
+{
+	document.getElementById("res6").style.display = "none";
+	document.getElementById("res7").style.display = "none";
+	document.getElementById("res8").style.display = "none";
+	document.getElementById("res9").style.display = "none";
+}
+else if(j == 5)
+{
+	document.getElementById("res5").style.display = "none";
+	document.getElementById("res6").style.display = "none";
+	document.getElementById("res7").style.display = "none";
+	document.getElementById("res8").style.display = "none";
+	document.getElementById("res9").style.display = "none";
+}
+else if(j == 4)
+{
+	document.getElementById("res4").style.display = "none";
+	document.getElementById("res5").style.display = "none";
+	document.getElementById("res6").style.display = "none";
+	document.getElementById("res7").style.display = "none";
+	document.getElementById("res8").style.display = "none";
+	document.getElementById("res9").style.display = "none";
+}
+else if(j == 3)
+{
+	document.getElementById("res3").style.display = "none";
+	document.getElementById("res4").style.display = "none";
+	document.getElementById("res5").style.display = "none";
+	document.getElementById("res6").style.display = "none";
+	document.getElementById("res7").style.display = "none";
+	document.getElementById("res8").style.display = "none";
+	document.getElementById("res9").style.display = "none";
+}
+else if(j == 2)
+{
+	document.getElementById("res2").style.display = "none";
+	document.getElementById("res3").style.display = "none";
+	document.getElementById("res4").style.display = "none";
+	document.getElementById("res5").style.display = "none";
+	document.getElementById("res6").style.display = "none";
+	document.getElementById("res7").style.display = "none";
+	document.getElementById("res8").style.display = "none";
+	document.getElementById("res9").style.display = "none";
+}
+else if(j == 1)
+{
+	document.getElementById("res1").style.display = "none";
+	document.getElementById("res2").style.display = "none";
+	document.getElementById("res3").style.display = "none";
+	document.getElementById("res4").style.display = "none";
+	document.getElementById("res5").style.display = "none";
+	document.getElementById("res6").style.display = "none";
+	document.getElementById("res7").style.display = "none";
+	document.getElementById("res8").style.display = "none";
+	document.getElementById("res9").style.display = "none";
+}
+else if(j == 0)
+{
+	document.getElementById("res0").style.display = "none";
+	document.getElementById("res1").style.display = "none";
+	document.getElementById("res2").style.display = "none";
+	document.getElementById("res3").style.display = "none";
+	document.getElementById("res4").style.display = "none";
+	document.getElementById("res5").style.display = "none";
+	document.getElementById("res6").style.display = "none";
+	document.getElementById("res7").style.display = "none";
+	document.getElementById("res8").style.display = "none";
+	document.getElementById("res9").style.display = "none";
+}
+
+}
+</script>
+</body>
+</html>  
